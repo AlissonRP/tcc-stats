@@ -45,7 +45,7 @@ lang: pt
 
 
 
-## Distribuições Eliptícas {background-image="imgs/sptfy_back.jpg" background-opacity=0.1}
+## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.05}
 
 O vetor aleatório Y tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:
 
@@ -53,15 +53,20 @@ $$f_{Y}(y)= |\Sigma|^{-1/2}g[(y-\mu)^{T}\Sigma^{-1}(y-\mu)]$$
 
 em que g é dita função geradora e satisfaz:
 
-* $g:[0, \infty) \arrowright [0, \infty]$
+* $g:[0, \infty) \rightarrow [0, \infty]$
 * $\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du < \infty$
 
 
-## Propriedade {background-image="imgs/sptfy_back.jpg" background-opacity=0.1}
+## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.05}
 
-Sejam A uma matrix (rxd) de posto r e a um vetor r-dimensional, então vale que:
-Se Y ~ E(), então
-$$W = AY + a $$
+![Exemplo de CV](imgs/g_func.png){fig-align="center"}
+
+
+## Propriedade {background-image="https://slidechef.net/wp-content/uploads/2021/10/Free-Google-Slides-Math-Background.jpg" background-opacity=0.07}
+
+Sejam A uma matrix $(rxd)$ de posto r e a um vetor r-dimensional, então vale que:
+Se $Y \sim \xi_d(\mu, \Sigma)$, então:
+$$W = AY + a  \sim  \xi_r(A\mu + a, A\Sigma A^{T})$$
 
 
 ##  Modelo de Regressão de Parametrização Geral
@@ -76,12 +81,18 @@ $$Y_i = \mu_i(\theta) + \epsilon_i$$
 ## Modelo de Regressão Normal heteroscedastico
 
 
-## Estimação dos Parametros
+## Estimação dos Parâmetros
 
 Pode-se encontrar os estimadores de máxima verossimilhança, maximizando a seguinte função:
 
 $$\ell(\theta) = \sum_{i=1}^{n}\ell_i(\theta)$$
 
+
+Onde $\ell_i(\theta)=-\dfrac{1}{2}\log|\Sigma_i|+\log g(u_i)$ e
+
+* $u_i = z_i^{T}\Sigma_i^{-1}z_i$
+
+* $z_i = Y_i - \mu_i$
 
 ## Implementação
 
@@ -92,6 +103,9 @@ $$\ell(\theta) = \sum_{i=1}^{n}\ell_i(\theta)$$
 * `mu_formula` a model formula including variables and parameters
   * `y ~ beta0 + beta1 * X1`
   * `z ~ w1 + w7 * price`
+
+## 
+
 * `var_formula` a  model formula for the diagonal of covariance matrix
     * `~ sig1 + sig2 * X2`
     * `~ w1 + sig1 * price`
@@ -105,7 +119,7 @@ library(generalreg)
 X <- data.frame(x1 = runif(50), x2 = runif(50))
 y <- 2 + 3 * X$x1 + 2 * X$x2
 data <- data.frame(y, X)
-generalreg(data, mu_formula = y ~ beta0 + beta1*x1 + beta2*x2, dist='normal')
+generalreg(data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 * x2, dist='normal')
 
 
 ```
@@ -114,7 +128,7 @@ generalreg(data, mu_formula = y ~ beta0 + beta1*x1 + beta2*x2, dist='normal')
 
 
 
-## Sentimentos Temporalmente {background-image="imgs/sptfy_back.jpg" background-opacity=0.07}
+## Problemas Atuais {background-image="imgs/sptfy_back.jpg" background-opacity=0.07}
 
 
 

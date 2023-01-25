@@ -347,20 +347,24 @@
 </ul>
 </div>
 </section>
-<section id="distribuições-eliptícas" class="slide level2" data-background-image="imgs/sptfy_back.jpg" data-background-opacity="0.1">
+<section id="distribuições-eliptícas" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.05">
 <h2>Distribuições Eliptícas</h2>
 <p>O vetor aleatório Y tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:</p>
 <p><span class="math display">\[f_{Y}(y)= |\Sigma|^{-1/2}g[(y-\mu)^{T}\Sigma^{-1}(y-\mu)]\]</span></p>
 <p>em que g é dita função geradora e satisfaz:</p>
 <ul>
-<li><span class="math inline">\(g:[0, \infty) \arrowright [0, \infty]\)</span></li>
+<li><span class="math inline">\(g:[0, \infty) \rightarrow [0, \infty]\)</span></li>
 <li><span class="math inline">\(\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du &lt; \infty\)</span></li>
 </ul>
 </section>
-<section id="propriedade" class="slide level2" data-background-image="imgs/sptfy_back.jpg" data-background-opacity="0.1">
+<section id="distribuições-eliptícas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.05">
+<h2>Distribuições Eliptícas</h2>
+
+<img data-src="imgs/g_func.png" class="r-stretch quarto-figure-center"><p class="caption">Exemplo de CV</p></section>
+<section id="propriedade" class="slide level2" data-background-image="https://slidechef.net/wp-content/uploads/2021/10/Free-Google-Slides-Math-Background.jpg" data-background-opacity="0.07">
 <h2>Propriedade</h2>
-<p>Sejam A uma matrix (rxd) de posto r e a um vetor r-dimensional, então vale que: Se Y ~ E(), então</p>
-<p><span class="math display">\[W = AY + a \]</span></p>
+<p>Sejam A uma matrix <span class="math inline">\((rxd)\)</span> de posto r e a um vetor r-dimensional, então vale que: Se <span class="math inline">\(Y \sim \xi_d(\mu, \Sigma)\)</span>, então:</p>
+<p><span class="math display">\[W = AY + a  \sim  \xi_r(A\mu + a, A\Sigma A^{T})\]</span></p>
 </section>
 <section id="modelo-de-regressão-de-parametrização-geral" class="slide level2">
 <h2>Modelo de Regressão de Parametrização Geral</h2>
@@ -373,10 +377,15 @@
 <section id="modelo-de-regressão-normal-heteroscedastico" class="slide level2">
 <h2>Modelo de Regressão Normal heteroscedastico</h2>
 </section>
-<section id="estimação-dos-parametros" class="slide level2">
-<h2>Estimação dos Parametros</h2>
+<section id="estimação-dos-parâmetros" class="slide level2">
+<h2>Estimação dos Parâmetros</h2>
 <p>Pode-se encontrar os estimadores de máxima verossimilhança, maximizando a seguinte função:</p>
 <p><span class="math display">\[\ell(\theta) = \sum_{i=1}^{n}\ell_i(\theta)\]</span></p>
+<p>Onde <span class="math inline">\(\ell_i(\theta)=-\dfrac{1}{2}\log|\Sigma_i|+\log g(u_i)\)</span> e</p>
+<ul>
+<li><p><span class="math inline">\(u_i = z_i^{T}\Sigma_i^{-1}z_i\)</span></p></li>
+<li><p><span class="math inline">\(z_i = Y_i - \mu_i\)</span></p></li>
+</ul>
 </section>
 <section id="implementação" class="slide level2">
 <h2>Implementação</h2>
@@ -387,27 +396,32 @@
 <li><code>y ~ beta0 + beta1 * X1</code></li>
 <li><code>z ~ w1 + w7 * price</code></li>
 </ul></li>
-<li><p><code>var_formula</code> a model formula for the diagonal of covariance matrix</p>
+</ul>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<ul>
+<li><code>var_formula</code> a model formula for the diagonal of covariance matrix
 <ul>
 <li><code>~ sig1 + sig2 * X2</code></li>
 <li><code>~ w1 + sig1 * price</code></li>
 </ul></li>
-<li><p><code>data</code> A data frame in which to evaluate the variables in <code>mu_formula</code> and <code>var_formula</code>.</p></li>
-<li><p><code>dist</code> Inform the distribution of your data</p></li>
+<li><code>data</code> A data frame in which to evaluate the variables in <code>mu_formula</code> and <code>var_formula</code>.</li>
+<li><code>dist</code> Inform the distribution of your data</li>
 </ul>
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <pre><code>library(generalreg)
 X &lt;- data.frame(x1 = runif(50), x2 = runif(50))
 y &lt;- 2 + 3 * X$x1 + 2 * X$x2
 data &lt;- data.frame(y, X)
-generalreg(data, mu_formula = y ~ beta0 + beta1*x1 + beta2*x2, dist='normal')
+generalreg(data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 * x2, dist='normal')
 
 </code></pre>
 </section>
-<section id="sentimentos-temporalmente" class="slide level2" data-background-image="imgs/sptfy_back.jpg" data-background-opacity="0.07">
-<h2>Sentimentos Temporalmente</h2>
+<section id="problemas-atuais" class="slide level2" data-background-image="imgs/sptfy_back.jpg" data-background-opacity="0.07">
+<h2>Problemas Atuais</h2>
 </section>
 <section id="covariáveis" class="slide level2" data-background-image="imgs/sptfy_back.jpg" data-background-opacity="0.11">
 <h2>Covariáveis</h2>
