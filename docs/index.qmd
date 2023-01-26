@@ -56,6 +56,23 @@ em que g é dita função geradora e satisfaz:
 * $g:[0, \infty) \rightarrow [0, \infty]$
 * $\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du < \infty$
 
+## Distribuições Eliptícas
+
+* Para o caso da Normal univariada:
+ * $\Sigma = \sigma$
+ * $g(u) = \exp(\frac{-u}{2})$
+
+## Distribuições Eliptícas
+
+$$f_{Y}(y)= \sigma^{-1/2}\exp[\frac{1}{2}(y-\mu)^2\sigma^{-1}]$$
+
+
+
+
+
+
+
+
 
 ## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.05}
 
@@ -69,21 +86,30 @@ Se $Y \sim \xi_d(\mu, \Sigma)$, então:
 $$W = AY + a  \sim  \xi_r(A\mu + a, A\Sigma A^{T})$$
 
 
-##  Modelo de Regressão de Parametrização Geral
+##  Modelo de Regressão com Parametrização Geral
 
 Seja $Y_i$ um vetor aleatório e $x_i$ covariáveis conhecidas, o modelo definido como:
 
 $$Y_i = \mu_i(\theta) + \epsilon_i$$
 
-## Modelo de Regressão Normal
+## Modelo de Regressão Linear
+
+$$Y_i = x_i^{T}\beta + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)$$
+
+* $\mu_i(\theta) = x_i\beta$
+* $\Sigma_i(\theta) = \sigma^2$
+
+* Para o caso Heterocedastico $\Sigma_i(\theta) = \sigma_i^2$
 
 
-## Modelo de Regressão Normal heteroscedastico
+## Modelos não Lineares
+
+$$Y_i = h(x, \theta) + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)$$
 
 
 ## Estimação dos Parâmetros
 
-Pode-se encontrar os estimadores de máxima verossimilhança, maximizando a seguinte função:
+Pode-se encontrar os estimadores, maximizando a seguinte função:
 
 $$\ell(\theta) = \sum_{i=1}^{n}\ell_i(\theta)$$
 
@@ -95,14 +121,37 @@ Onde $\ell_i(\theta)=-\dfrac{1}{2}\log|\Sigma_i|+\log g(u_i)$ e
 * $z_i = Y_i - \mu_i$
 
 ## Implementação
+Modelos "tradicionais" em R:
+
+::: incremental
+
+* ```y ~ x1 + x2 + x3 + x8```
+
+<br>
+
+
+* ```Species ~ Sepal.Length + Petal.Length```
+
+
+* ```dependente ~ .```
+
+
+<br>
 
 * "Qualquer" estrutura de média e covariância
+:::
 
 
+## Implementação
 
+::: incremental
 * `mu_formula` a model formula including variables and parameters
   * `y ~ beta0 + beta1 * X1`
   * `z ~ w1 + w7 * price`
+
+* Mas quem são os parâmetros?
+:::
+
 
 ## 
 
@@ -114,23 +163,45 @@ Onde $\ell_i(\theta)=-\dfrac{1}{2}\log|\Sigma_i|+\log g(u_i)$ e
 
 
 ## 
-```{}
+```{r}
+#| echo: true
 library(generalreg)
-X <- data.frame(x1 = runif(50), x2 = runif(50))
+X <- data.frame(x1 = rnorm(50), x2 = rnorm(50))
 y <- 2 + 3 * X$x1 + 2 * X$x2
 data <- data.frame(y, X)
-generalreg(data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 * x2, dist='normal')
-
-
+fit <- generalreg(data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 * x2, dist='normal')
+fit
 ```
 
+##
+```{r}
+#| echo: true
+
+fit |> summary()
+```
 
 
 
 
 ## Problemas Atuais {background-image="imgs/sptfy_back.jpg" background-opacity=0.07}
 
+::: incremental
+* Ajustar a implementação  da estrutura de covariância
 
+* Ajustar a atribuição das covariáveis no escopo da função
+
+* Reestruturar todas as funções do `stats` para funcionar na classe `generalreg`
+
+* Implementar modelos mais específicos
+
+* Entrar em mais uma luta com o *CRAN*
+
+::: footer
+morte ao `attach`
+:::
+
+
+:::
 
 
 ## Covariáveis {background-image="imgs/sptfy_back.jpg" background-opacity=0.11}
@@ -144,9 +215,10 @@ generalreg(data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 * x2, dist='normal'
 
 * Modelos um pouco mais "estruturados" (erros nas variáveis)
 
+
 :::
 
-## Count Vectorization {background-image="imgs/sptfy_back.jpg" background-opacity=0.08}
+# Obrigado pela Atenção!
 
-![Exemplo de CV](imgs/vector.jpg){fig-align="center"}
+![](imgs/vector.jpg){fig-align="center"}
 
