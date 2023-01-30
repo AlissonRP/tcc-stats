@@ -390,7 +390,7 @@
   <p class="author"><br> Alisson Rosa <br> <br> Orientador: Prof.&nbsp;Laís Helen Loose</p>
 </section>
 
-<section id="introdução" class="slide level2" data-background-image="imgs/sptfy_back.jpg" data-background-opacity="0.1">
+<section id="introdução" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Introdução</h2>
 <div>
 <ul>
@@ -410,17 +410,17 @@
 </ul>
 </div>
 </section>
-<section id="distribuições-eliptícas" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.05">
+<section id="distribuições-eliptícas" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Distribuições Eliptícas</h2>
 <p>O vetor aleatório Y tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:</p>
-<p><span class="math display">\[f_{Y}(y)= |\Sigma|^{-1/2}g[(y-\mu)^{T}\Sigma^{-1}(y-\mu)]\]</span></p>
+<p><span class="math display">\[f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
 <p>em que g é dita função geradora e satisfaz:</p>
 <ul>
 <li><span class="math inline">\(g:[0, \infty) \rightarrow [0, \infty]\)</span></li>
 <li><span class="math inline">\(\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du &lt; \infty\)</span></li>
 </ul>
 </section>
-<section id="distribuições-eliptícas-1" class="slide level2">
+<section id="distribuições-eliptícas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Distribuições Eliptícas</h2>
 <ul>
 <li>Para o caso da Normal univariada:</li>
@@ -428,25 +428,31 @@
 <li><span class="math inline">\(g(u) = \exp(\frac{-u}{2})\)</span></li>
 </ul>
 </section>
-<section id="distribuições-eliptícas-2" class="slide level2">
+<section id="distribuições-eliptícas-2" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Distribuições Eliptícas</h2>
+<p><span class="math display">\[f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
+<ul>
+<li><span class="math inline">\(\Sigma = \sigma\)</span></li>
+<li><span class="math inline">\(g(u) = \exp(\frac{-u}{2})\)</span></li>
+</ul>
 <p><span class="math display">\[f_{Y}(y)= \sigma^{-1/2}\exp[\frac{1}{2}(y-\mu)^2\sigma^{-1}]\]</span></p>
 </section>
-<section id="distribuições-eliptícas-3" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.05">
+<section id="distribuições-eliptícas-3" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Distribuições Eliptícas</h2>
-
-<img data-src="imgs/g_func.png" class="r-stretch quarto-figure-center"><p class="caption">Exemplo de CV</p></section>
-<section id="propriedade" class="slide level2" data-background-image="https://slidechef.net/wp-content/uploads/2021/10/Free-Google-Slides-Math-Background.jpg" data-background-opacity="0.07">
-<h2>Propriedade</h2>
-<p>Sejam A uma matrix <span class="math inline">\((rxd)\)</span> de posto r e a um vetor r-dimensional, então vale que: Se <span class="math inline">\(Y \sim \xi_d(\mu, \Sigma)\)</span>, então:</p>
-<p><span class="math display">\[W = AY + a  \sim  \xi_r(A\mu + a, A\Sigma A^{T})\]</span></p>
 </section>
-<section id="modelo-de-regressão-com-parametrização-geral" class="slide level2">
+<section id="propriedade" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
+<h2>Propriedade</h2>
+<div id="thm-line" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 1 (Transformações Afins) </strong></span>Sejam A uma matrix <span class="math inline">\((rxd)\)</span> de posto r e <span class="math inline">\(\mathbf{a}\)</span> um vetor r-dimensional, então vale que: Se <span class="math inline">\(Y \sim \xi_d(\mu, \Sigma)\)</span>, então:</p>
+<p><span class="math display">\[W = AY + a  \sim  \xi_r(A\mu + a, A\Sigma A^{T})\]</span></p>
+</div>
+</section>
+<section id="modelo-de-regressão-com-parametrização-geral" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelo de Regressão com Parametrização Geral</h2>
 <p>Seja <span class="math inline">\(Y_i\)</span> um vetor aleatório e <span class="math inline">\(x_i\)</span> covariáveis conhecidas, o modelo definido como:</p>
 <p><span class="math display">\[Y_i = \mu_i(\theta) + \epsilon_i\]</span></p>
 </section>
-<section id="modelo-de-regressão-linear" class="slide level2">
+<section id="modelo-de-regressão-linear" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelo de Regressão Linear</h2>
 <p><span class="math display">\[Y_i = x_i^{T}\beta + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)\]</span></p>
 <ul>
@@ -455,11 +461,11 @@
 <li><p>Para o caso Heterocedastico <span class="math inline">\(\Sigma_i(\theta) = \sigma_i^2\)</span></p></li>
 </ul>
 </section>
-<section id="modelos-não-lineares" class="slide level2">
+<section id="modelos-não-lineares" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelos não Lineares</h2>
 <p><span class="math display">\[Y_i = h(x, \theta) + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)\]</span></p>
 </section>
-<section id="estimação-dos-parâmetros" class="slide level2">
+<section id="estimação-dos-parâmetros" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Estimação dos Parâmetros</h2>
 <p>Pode-se encontrar os estimadores, maximizando a seguinte função:</p>
 <p><span class="math display">\[\ell(\theta) = \sum_{i=1}^{n}\ell_i(\theta)\]</span></p>
@@ -469,7 +475,7 @@
 <li><p><span class="math inline">\(z_i = Y_i - \mu_i\)</span></p></li>
 </ul>
 </section>
-<section id="implementação" class="slide level2">
+<section id="implementação" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
 <h2>Implementação</h2>
 <p>Modelos “tradicionais” em R:</p>
 <div>
@@ -487,7 +493,7 @@
 </ul>
 </div>
 </section>
-<section id="implementação-1" class="slide level2">
+<section id="implementação-1" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
 <h2>Implementação</h2>
 <div>
 <ul>
@@ -500,7 +506,7 @@
 </ul>
 </div>
 </section>
-<section id="section" class="slide level2">
+<section id="section" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
 <h2></h2>
 <ul>
 <li><code>var_formula</code> a model formula for the diagonal of covariance matrix
@@ -512,7 +518,7 @@
 <li><code>dist</code> Inform the distribution of your data</li>
 </ul>
 </section>
-<section id="section-1" class="slide level2">
+<section id="section-1" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
 <h2></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(generalreg)</span>
@@ -530,11 +536,11 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 *
 
 Coefficients:
 beta0 beta1 beta2 sigma 
-    2     3     2     2 </code></pre>
+    2     3     2    14 </code></pre>
 </div>
 </div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-2" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
 <h2></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>fit <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -546,20 +552,20 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 +
 
 Residuals:
           Min            1Q        Median            3Q           Max 
--4.404127e-07 -2.738155e-07  1.227232e-07  3.390091e-07  9.545210e-07 
+-4.181569e-07 -2.420785e-07 -6.845703e-08  1.189571e-07  2.951574e-07 
 
 Coefficients:
       Estimate Std_Error P_Value
 beta0        2    No Sei  No Sei
 beta1        3    No Sei  No Sei
 beta2        2    No Sei  No Sei
-sigma        2    No Sei  No Sei
+sigma       14    No Sei  No Sei
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
 </div>
 </div>
 </section>
-<section id="problemas-atuais" class="slide level2" data-background-image="imgs/sptfy_back.jpg" data-background-opacity="0.07">
+<section id="problemas-atuais" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
 <h2>Problemas Atuais</h2>
 <div>
 <ul>
@@ -574,28 +580,10 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 </div>
 </div>
 </section>
-<section id="covariáveis" class="slide level2" data-background-image="imgs/sptfy_back.jpg" data-background-opacity="0.11">
-<h2>Covariáveis</h2>
-<div>
-<ul>
-<li class="fragment">Modelos manipulam <strong>matrizes</strong></li>
-</ul>
-<p><br></p>
-<ul>
-<li class="fragment"><p>Compartilhamento de parametros entre as estruturas</p></li>
-<li class="fragment"><p>Modelos um pouco mais “estruturados” (erros nas variáveis)</p></li>
-</ul>
-</div>
-</section>
-<section id="obrigado-pela-atenção" class="title-slide slide level1 center">
+<section id="obrigado-pela-atenção" class="title-slide slide level1 center" data-background-image="imgs/ufsm.png" data-background-opacity="0.02">
 <h1>Obrigado pela Atenção!</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="imgs/vector.jpg"></p>
-</figure>
-</div>
-<p><img src="imgs/ufsm.png" class="slide-logo"></p>
-<div class="footer footer-default">
+
+<img src="imgs/ufsm.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section>

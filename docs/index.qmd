@@ -14,7 +14,7 @@ format:
 lang: pt
 ---
 
-## Introdução  {background-image="imgs/sptfy_back.jpg" background-opacity=0.1}
+## Introdução  {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
 ::: {.incremental}
 - Nivelamento
@@ -44,25 +44,30 @@ lang: pt
 
 
 
-
-## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.05}
+## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
 O vetor aleatório Y tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:
 
-$$f_{Y}(y)= |\Sigma|^{-1/2}g[(y-\mu)^{T}\Sigma^{-1}(y-\mu)]$$
+$$f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]$$
 
 em que g é dita função geradora e satisfaz:
 
 * $g:[0, \infty) \rightarrow [0, \infty]$
 * $\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du < \infty$
 
-## Distribuições Eliptícas
+## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
 * Para o caso da Normal univariada:
  * $\Sigma = \sigma$
  * $g(u) = \exp(\frac{-u}{2})$
 
-## Distribuições Eliptícas
+## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+
+
+$$f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]$$
+
+* $\Sigma = \sigma$
+* $g(u) = \exp(\frac{-u}{2})$
 
 $$f_{Y}(y)= \sigma^{-1/2}\exp[\frac{1}{2}(y-\mu)^2\sigma^{-1}]$$
 
@@ -74,25 +79,36 @@ $$f_{Y}(y)= \sigma^{-1/2}\exp[\frac{1}{2}(y-\mu)^2\sigma^{-1}]$$
 
 
 
-## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.05}
-
-![Exemplo de CV](imgs/g_func.png){fig-align="center"}
 
 
-## Propriedade {background-image="https://slidechef.net/wp-content/uploads/2021/10/Free-Google-Slides-Math-Background.jpg" background-opacity=0.07}
 
-Sejam A uma matrix $(rxd)$ de posto r e a um vetor r-dimensional, então vale que:
+## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+
+
+
+
+## Propriedade {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+
+
+::: {#thm-line}
+
+## Transformações Afins {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+
+
+
+
+Sejam A uma matrix $(rxd)$ de posto r e $\mathbf{a}$ um vetor r-dimensional, então vale que:
 Se $Y \sim \xi_d(\mu, \Sigma)$, então:
 $$W = AY + a  \sim  \xi_r(A\mu + a, A\Sigma A^{T})$$
+:::
 
-
-##  Modelo de Regressão com Parametrização Geral
+##  Modelo de Regressão com Parametrização Geral {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
 Seja $Y_i$ um vetor aleatório e $x_i$ covariáveis conhecidas, o modelo definido como:
 
 $$Y_i = \mu_i(\theta) + \epsilon_i$$
 
-## Modelo de Regressão Linear
+## Modelo de Regressão Linear {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
 $$Y_i = x_i^{T}\beta + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)$$
 
@@ -102,12 +118,12 @@ $$Y_i = x_i^{T}\beta + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)$$
 * Para o caso Heterocedastico $\Sigma_i(\theta) = \sigma_i^2$
 
 
-## Modelos não Lineares
+## Modelos não Lineares {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
 $$Y_i = h(x, \theta) + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)$$
 
 
-## Estimação dos Parâmetros
+## Estimação dos Parâmetros {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
 Pode-se encontrar os estimadores, maximizando a seguinte função:
 
@@ -120,7 +136,7 @@ Onde $\ell_i(\theta)=-\dfrac{1}{2}\log|\Sigma_i|+\log g(u_i)$ e
 
 * $z_i = Y_i - \mu_i$
 
-## Implementação
+## Implementação {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
 Modelos "tradicionais" em R:
 
 ::: incremental
@@ -142,7 +158,7 @@ Modelos "tradicionais" em R:
 :::
 
 
-## Implementação
+## Implementação {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
 
 ::: incremental
 * `mu_formula` a model formula including variables and parameters
@@ -153,7 +169,7 @@ Modelos "tradicionais" em R:
 :::
 
 
-## 
+## {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
 
 * `var_formula` a  model formula for the diagonal of covariance matrix
     * `~ sig1 + sig2 * X2`
@@ -162,7 +178,7 @@ Modelos "tradicionais" em R:
 * `dist` Inform the distribution of your data
 
 
-## 
+## {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
 ```{r}
 #| echo: true
 library(generalreg)
@@ -173,7 +189,7 @@ fit <- generalreg(data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 * x2, dist='
 fit
 ```
 
-##
+## {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
 ```{r}
 #| echo: true
 
@@ -183,7 +199,7 @@ fit |> summary()
 
 
 
-## Problemas Atuais {background-image="imgs/sptfy_back.jpg" background-opacity=0.07}
+## Problemas Atuais {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
 
 ::: incremental
 * Ajustar a implementação  da estrutura de covariância
@@ -204,21 +220,10 @@ morte ao `attach`
 :::
 
 
-## Covariáveis {background-image="imgs/sptfy_back.jpg" background-opacity=0.11}
-
-::: {.incremental}
-* Modelos manipulam **matrizes**
-
-<br>
-
-* Compartilhamento de parametros entre as estruturas 
-
-* Modelos um pouco mais "estruturados" (erros nas variáveis)
 
 
-:::
 
-# Obrigado pela Atenção!
+# Obrigado pela Atenção! {background-image="imgs/ufsm.png" background-opacity=0.02}
 
-![](imgs/vector.jpg){fig-align="center"}
+
 
