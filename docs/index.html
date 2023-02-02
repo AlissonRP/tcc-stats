@@ -439,7 +439,8 @@
 </section>
 <section id="distribuições-eliptícas-3" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Distribuições Eliptícas</h2>
-</section>
+
+<img data-src="imgs/g_func.png" class="r-stretch"></section>
 <section id="propriedade" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Propriedade</h2>
 <div id="thm-line" class="theorem">
@@ -456,7 +457,7 @@
 <h2>Modelo de Regressão Linear</h2>
 <p><span class="math display">\[Y_i = x_i^{T}\beta + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)\]</span></p>
 <ul>
-<li><p><span class="math inline">\(\mu_i(\theta) = x_i\beta\)</span></p></li>
+<li><p><span class="math inline">\(\mu_i(\theta) = x_i^T\beta\)</span></p></li>
 <li><p><span class="math inline">\(\Sigma_i(\theta) = \sigma^2\)</span></p></li>
 <li><p>Para o caso Heterocedastico <span class="math inline">\(\Sigma_i(\theta) = \sigma_i^2\)</span></p></li>
 </ul>
@@ -536,7 +537,7 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 *
 
 Coefficients:
 beta0 beta1 beta2 sigma 
-    2     3     2    14 </code></pre>
+    2     3     2     2 </code></pre>
 </div>
 </div>
 </section>
@@ -552,14 +553,14 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 +
 
 Residuals:
           Min            1Q        Median            3Q           Max 
--4.181569e-07 -2.420785e-07 -6.845703e-08  1.189571e-07  2.951574e-07 
+-5.660035e-07 -2.029876e-07 -3.730490e-08  1.291219e-07  3.474476e-07 
 
 Coefficients:
       Estimate Std_Error P_Value
 beta0        2    No Sei  No Sei
 beta1        3    No Sei  No Sei
 beta2        2    No Sei  No Sei
-sigma       14    No Sei  No Sei
+sigma        2    No Sei  No Sei
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
 </div>
@@ -570,7 +571,6 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 <div>
 <ul>
 <li class="fragment"><p>Ajustar a implementação da estrutura de covariância</p></li>
-<li class="fragment"><p>Ajustar a atribuição das covariáveis no escopo da função</p></li>
 <li class="fragment"><p>Reestruturar todas as funções do <code>stats</code> para funcionar na classe <code>generalreg</code></p></li>
 <li class="fragment"><p>Implementar modelos mais específicos</p></li>
 <li class="fragment"><p>Entrar em mais uma luta com o <em>CRAN</em></p></li>
