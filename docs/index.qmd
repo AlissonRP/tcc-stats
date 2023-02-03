@@ -136,6 +136,10 @@ Onde $\ell_i(\theta)=-\dfrac{1}{2}\log|\Sigma_i|+\log g(u_i)$ e
 
 * $z_i = Y_i - \mu_i$
 
+# Objetivo {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.2}
+
+* Implementar Computacionalmente o Modelo em R
+
 ## Implementação {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
 Modelos "tradicionais" em R:
 
@@ -217,6 +221,7 @@ morte ao `attach`
 
 
 :::
+
 
 
 
