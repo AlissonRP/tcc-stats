@@ -80,6 +80,25 @@
     code span.va { color: #19177c; } /* Variable */
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -465,6 +484,13 @@
 <section id="modelos-não-lineares" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelos não Lineares</h2>
 <p><span class="math display">\[Y_i = h(x, \theta) + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)\]</span></p>
+<ul>
+<li><span class="math inline">\(Y_i = \theta_1 + \dfrac{\theta_2}{2 + \theta_3x_i^{\theta_4}} + u_i\)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(z_i = \exp\bigg(\beta_0 + \dfrac{\beta_1x_1}{1 + \beta_3x_i}\bigg) + u_i\)</span></li>
+</ul>
 </section>
 <section id="estimação-dos-parâmetros" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Estimação dos Parâmetros</h2>
@@ -544,7 +570,7 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 *
 
 Coefficients:
 beta0 beta1 beta2 sigma 
-    2     3     2     4 </code></pre>
+    2     3     2     1 </code></pre>
 </div>
 </div>
 </section>
@@ -560,14 +586,14 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 +
 
 Residuals:
           Min            1Q        Median            3Q           Max 
--8.112582e-08 -4.886380e-08  6.508508e-09  2.371702e-08  7.558637e-08 
+-4.165707e-09  2.322628e-09  7.509398e-09  9.668521e-09  1.673806e-08 
 
 Coefficients:
       Estimate Std_Error P_Value
 beta0        2    No Sei  No Sei
 beta1        3    No Sei  No Sei
 beta2        2    No Sei  No Sei
-sigma        4    No Sei  No Sei
+sigma        1    No Sei  No Sei
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
 </div>
@@ -582,16 +608,35 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 <li class="fragment"><p>Implementar modelos mais específicos</p></li>
 <li class="fragment"><p>Entrar em mais uma luta com o <em>CRAN</em></p></li>
 </ul>
-<div class="footer">
-<p>morte ao <code>attach</code></p>
-</div>
 </div>
 </section></section>
 <section id="obrigado-pela-atenção" class="title-slide slide level1 center" data-background-image="imgs/ufsm.png" data-background-opacity="0.02">
 <h1>Obrigado pela Atenção!</h1>
 
+</section>
+
+<section id="bibliografia" class="title-slide slide level1 smaller scrollable">
+<h1>Bibliografia</h1>
+
 <img src="imgs/ufsm.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-lemonte2011multivariate" class="csl-entry" role="doc-biblioentry">
+Lemonte, Artur J, e Alexandre G Patriota. 2011. <span>«Multivariate elliptical models with general parameterization»</span>. <em>Statistical methodology</em> 8 (4): 389–400.
+</div>
+<div id="ref-loose2019condiccoes" class="csl-entry" role="doc-biblioentry">
+Loose, Laı́s Helen. 2019. <span>«Condi<span>ç</span><span>õ</span>es de regularidade para o modelo de regress<span>ã</span>o com parametriza<span>ç</span><span>ã</span>o geral»</span>. Tese de doutorado, Universidade de S<span>ã</span>o Paulo.
+</div>
+<div id="ref-perette2019implementaccao" class="csl-entry" role="doc-biblioentry">
+Perette, André Casagrandi. 2019. <span>«Implementa<span>ç</span><span>ã</span>o no software estat<span>ı́</span>stico R de modelos de regress<span>ã</span>o normal com parametriza<span>ç</span><span>ã</span>o geral»</span>. Tese de doutorado, Universidade de S<span>ã</span>o Paulo.
+</div>
+<div id="ref-therneau2013r" class="csl-entry" role="doc-biblioentry">
+Therneau, Terry, e T Lumley. 2013. <span>«R survival package»</span>. <em>R Core Team</em>.
+</div>
+<div id="ref-wickham2019advanced" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2019. <em>Advanced r</em>. CRC press.
+</div>
 </div>
 </section>
     </div>
