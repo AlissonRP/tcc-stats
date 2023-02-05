@@ -2,6 +2,9 @@
 title: "O Modelo de Regressão com Parametrização Geral"
 subtitle: "E Sua Implementação Computacional"
 author: "<br> Alisson Rosa <br> <br> Orientador: Prof. Laís Helen Loose"
+title-slide-attributes:
+  data-background-image: "https://img.freepik.com/vector-premium/fondo-abstracto-puntos-lineas-que-cruzan-colores-azul-claro_444390-6877.jpg?w=2000"
+  data-background-opacity: "0.04"
 format: 
     revealjs:
         theme: [serif, custom.scss]
@@ -47,24 +50,24 @@ lang: pt
 
 
 
-## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
 
-O vetor aleatório Y tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:
+O vetor aleatório $\mathbf{Y}$ tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:
 
-$$f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]$$
+$$f_{\mathbf{Y}}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]$$
 
 em que g é dita função geradora e satisfaz:
 
 * $g:[0, \infty) \rightarrow [0, \infty]$
 * $\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du < \infty$
 
-## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
 
 * Para o caso da Normal univariada:
  * $\Sigma = \sigma$
  * $g(u) = \exp(\frac{-u}{2})$
 
-## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
 
 
 $$f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]$$
@@ -72,7 +75,7 @@ $$f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}
 * $\Sigma = \sigma$
 * $g(u) = \exp(\frac{-u}{2})$
 
-$$f_{Y}(y)= \sigma^{-1/2}\exp[\frac{1}{2}(y-\mu)^2\sigma^{-1}]$$
+$$f_{Y}(y)= \sigma^{-1/2}\exp[-\frac{1}{2}(y-\mu)^2\sigma^{-1}]$$
 
 
 
@@ -85,12 +88,12 @@ $$f_{Y}(y)= \sigma^{-1/2}\exp[\frac{1}{2}(y-\mu)^2\sigma^{-1}]$$
 
 
 
-## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+## Distribuições Eliptícas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
 
 
 ![](imgs/g_func.png)
 
-## Propriedade {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+## Propriedade {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
 
 
 ::: {#thm-line}
@@ -100,16 +103,18 @@ $$f_{Y}(y)= \sigma^{-1/2}\exp[\frac{1}{2}(y-\mu)^2\sigma^{-1}]$$
 
 
 
-Sejam A uma matrix $(rxd)$ de posto r e $\mathbf{a}$ um vetor r-dimensional, então vale que:
-Se $Y \sim \xi_d(\mu, \Sigma)$, então:
-$$W = AY + a  \sim  \xi_r(A\mu + a, A\Sigma A^{T})$$
+Sejam A uma matrix $(rxd)$ de posto $r$ e $\mathbf{a}$ um vetor $r$-dimensional, então vale que:
+
+
+Se $\mathbf{Y} \sim \xi_d(\mu, \Sigma)$, então:
+$$\mathbf{W} = A\mathbf{Y} + a  \sim  \xi_r(A\mathbf{\mu} + a, A\Sigma A^{T})$$
 :::
 
 ##  Modelo de Regressão com Parametrização Geral {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
-Seja $Y_i$ um vetor aleatório e $x_i$ covariáveis conhecidas, o modelo definido como:
+Seja $\mathbf{Y_i}$ um vetor aleatório e $x_i$ covariáveis conhecidas, o modelo definido como:
 
-$$Y_i = \mu_i(\theta) + \epsilon_i$$
+$$\mathbf{Y_i} = \mathbf{\mu}_i(\theta) + \mathbf{\epsilon}_i$$
 
 ## Modelo de Regressão Linear {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
@@ -129,7 +134,7 @@ $$Y_i = h(x, \theta) + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)$$
 
 <br />
 
-*  $z_i =  \exp\bigg(\beta_0 + \dfrac{\beta_1x_1}{1 + \beta_3x_i}\bigg) + u_i$
+*  $z_i =  \exp\bigg(\beta_0 + \dfrac{\beta_1x_1}{1 + \beta_3x_4}\bigg) + u_i$
 
 
 ## Estimação dos Parâmetros {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}

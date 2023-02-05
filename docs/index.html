@@ -403,7 +403,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
+<section id="title-slide" data-background-image="https://img.freepik.com/vector-premium/fondo-abstracto-puntos-lineas-que-cruzan-colores-azul-claro_444390-6877.jpg?w=2000" data-background-opacity="0.04" class="center">
   <h1 class="title">O Modelo de Regressão com Parametrização Geral</h1>
   <p class="subtitle">E Sua Implementação Computacional</p>
   <p class="author"><br> Alisson Rosa <br> <br> Orientador: Prof.&nbsp;Laís Helen Loose</p>
@@ -429,17 +429,17 @@
 </ul>
 </div>
 </section>
-<section id="distribuições-eliptícas" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
+<section id="distribuições-eliptícas" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuições Eliptícas</h2>
-<p>O vetor aleatório Y tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:</p>
-<p><span class="math display">\[f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
+<p>O vetor aleatório <span class="math inline">\(\mathbf{Y}\)</span> tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:</p>
+<p><span class="math display">\[f_{\mathbf{Y}}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
 <p>em que g é dita função geradora e satisfaz:</p>
 <ul>
 <li><span class="math inline">\(g:[0, \infty) \rightarrow [0, \infty]\)</span></li>
 <li><span class="math inline">\(\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du &lt; \infty\)</span></li>
 </ul>
 </section>
-<section id="distribuições-eliptícas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
+<section id="distribuições-eliptícas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuições Eliptícas</h2>
 <ul>
 <li>Para o caso da Normal univariada:</li>
@@ -447,30 +447,31 @@
 <li><span class="math inline">\(g(u) = \exp(\frac{-u}{2})\)</span></li>
 </ul>
 </section>
-<section id="distribuições-eliptícas-2" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
+<section id="distribuições-eliptícas-2" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuições Eliptícas</h2>
 <p><span class="math display">\[f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
 <ul>
 <li><span class="math inline">\(\Sigma = \sigma\)</span></li>
 <li><span class="math inline">\(g(u) = \exp(\frac{-u}{2})\)</span></li>
 </ul>
-<p><span class="math display">\[f_{Y}(y)= \sigma^{-1/2}\exp[\frac{1}{2}(y-\mu)^2\sigma^{-1}]\]</span></p>
+<p><span class="math display">\[f_{Y}(y)= \sigma^{-1/2}\exp[-\frac{1}{2}(y-\mu)^2\sigma^{-1}]\]</span></p>
 </section>
-<section id="distribuições-eliptícas-3" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
+<section id="distribuições-eliptícas-3" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuições Eliptícas</h2>
 
 <img data-src="imgs/g_func.png" class="r-stretch"></section>
-<section id="propriedade" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
+<section id="propriedade" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Propriedade</h2>
 <div id="thm-line" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 1 (Transformações Afins) </strong></span>Sejam A uma matrix <span class="math inline">\((rxd)\)</span> de posto r e <span class="math inline">\(\mathbf{a}\)</span> um vetor r-dimensional, então vale que: Se <span class="math inline">\(Y \sim \xi_d(\mu, \Sigma)\)</span>, então:</p>
-<p><span class="math display">\[W = AY + a  \sim  \xi_r(A\mu + a, A\Sigma A^{T})\]</span></p>
+<p><span class="theorem-title"><strong>Teorema 1 (Transformações Afins) </strong></span>Sejam A uma matrix <span class="math inline">\((rxd)\)</span> de posto <span class="math inline">\(r\)</span> e <span class="math inline">\(\mathbf{a}\)</span> um vetor <span class="math inline">\(r\)</span>-dimensional, então vale que:</p>
+<p>Se <span class="math inline">\(\mathbf{Y} \sim \xi_d(\mu, \Sigma)\)</span>, então:</p>
+<p><span class="math display">\[\mathbf{W} = A\mathbf{Y} + a  \sim  \xi_r(A\mathbf{\mu} + a, A\Sigma A^{T})\]</span></p>
 </div>
 </section>
 <section id="modelo-de-regressão-com-parametrização-geral" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelo de Regressão com Parametrização Geral</h2>
-<p>Seja <span class="math inline">\(Y_i\)</span> um vetor aleatório e <span class="math inline">\(x_i\)</span> covariáveis conhecidas, o modelo definido como:</p>
-<p><span class="math display">\[Y_i = \mu_i(\theta) + \epsilon_i\]</span></p>
+<p>Seja <span class="math inline">\(\mathbf{Y_i}\)</span> um vetor aleatório e <span class="math inline">\(x_i\)</span> covariáveis conhecidas, o modelo definido como:</p>
+<p><span class="math display">\[\mathbf{Y_i} = \mathbf{\mu}_i(\theta) + \mathbf{\epsilon}_i\]</span></p>
 </section>
 <section id="modelo-de-regressão-linear" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelo de Regressão Linear</h2>
@@ -489,7 +490,7 @@
 </ul>
 <p><br></p>
 <ul>
-<li><span class="math inline">\(z_i = \exp\bigg(\beta_0 + \dfrac{\beta_1x_1}{1 + \beta_3x_i}\bigg) + u_i\)</span></li>
+<li><span class="math inline">\(z_i = \exp\bigg(\beta_0 + \dfrac{\beta_1x_1}{1 + \beta_3x_4}\bigg) + u_i\)</span></li>
 </ul>
 </section>
 <section id="estimação-dos-parâmetros" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
@@ -570,7 +571,7 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 *
 
 Coefficients:
 beta0 beta1 beta2 sigma 
-    2     3     2     1 </code></pre>
+    2     3     2     2 </code></pre>
 </div>
 </div>
 </section>
@@ -586,14 +587,14 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 +
 
 Residuals:
           Min            1Q        Median            3Q           Max 
--4.165707e-09  2.322628e-09  7.509398e-09  9.668521e-09  1.673806e-08 
+-5.893952e-11 -2.401093e-11  8.651468e-11  1.647008e-10  2.973621e-10 
 
 Coefficients:
       Estimate Std_Error P_Value
 beta0        2    No Sei  No Sei
 beta1        3    No Sei  No Sei
 beta2        2    No Sei  No Sei
-sigma        1    No Sei  No Sei
+sigma        2    No Sei  No Sei
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
 </div>
