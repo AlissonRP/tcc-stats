@@ -127,7 +127,7 @@ $$\mathbf{W} = A\mathbf{Y} + a  \sim  \xi_r(A\mathbf{\mu} + a, A\Sigma A^{T})$$
 
 ##  Modelo de Regressão com Parametrização Geral {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
-Seja $\mathbf{Y_i}$ um vetor aleatório e $x_i$ covariáveis conhecidas, o modelo definido como:
+Seja $\mathbf{Y_i}$ um vetor aleatório e $x_i$ covariáveis conhecidas, o modelo fica definido como:
 
 $$\mathbf{Y_i} = \mathbf{\mu}_i(\theta, x_i) + \mathbf{\epsilon}_i, \quad i=1\dots n$$
 

@@ -480,7 +480,7 @@
 </section>
 <section id="modelo-de-regressão-com-parametrização-geral" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelo de Regressão com Parametrização Geral</h2>
-<p>Seja <span class="math inline">\(\mathbf{Y_i}\)</span> um vetor aleatório e <span class="math inline">\(x_i\)</span> covariáveis conhecidas, o modelo definido como:</p>
+<p>Seja <span class="math inline">\(\mathbf{Y_i}\)</span> um vetor aleatório e <span class="math inline">\(x_i\)</span> covariáveis conhecidas, o modelo fica definido como:</p>
 <p><span class="math display">\[\mathbf{Y_i} = \mathbf{\mu}_i(\theta, x_i) + \mathbf{\epsilon}_i, \quad i=1\dots n\]</span></p>
 <p><br></p>
 <p>onde <span class="math inline">\(\mathbf{\epsilon}_i \sim \xi_i(0, \Sigma_i(\theta, x_i))\)</span></p>
@@ -585,8 +585,8 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 *
 
 
 Coefficients:
-beta0 beta1 beta2 sigma 
-    2     3     2     8 </code></pre>
+   beta0    beta1    beta2    sigma 
+2.000001 3.000000 2.000003 2.000000 </code></pre>
 </div>
 </div>
 </section>
@@ -602,14 +602,14 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 +
 
 Residuals:
           Min            1Q        Median            3Q           Max 
--5.870242e-07 -3.888642e-07  1.965252e-08  1.928900e-07  9.414091e-07 
+-1.041757e-05 -4.138289e-06 -3.647572e-07  9.457645e-07  4.961159e-06 
 
 Coefficients:
       Estimate Std_Error P_Value
-beta0        2    No Sei  No Sei
-beta1        3    No Sei  No Sei
-beta2        2    No Sei  No Sei
-sigma        8    No Sei  No Sei
+beta0 2.000001    No Sei  No Sei
+beta1 3.000000    No Sei  No Sei
+beta2 2.000003    No Sei  No Sei
+sigma 2.000000    No Sei  No Sei
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
 </div>
