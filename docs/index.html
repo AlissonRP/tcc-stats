@@ -464,7 +464,7 @@
 <li><span class="math inline">\(\Sigma = \sigma^2\)</span></li>
 <li><span class="math inline">\(g(u) = \exp(-\frac{u}{2})\)</span></li>
 </ul>
-<p><span class="math display">\[f_{Y}(y)= \sigma^{-1/2}\exp\bigg(-\frac{1}{2}(y-\mu)^2\sigma^{-2}\bigg)\]</span></p>
+<p><span class="math display">\[f_{Y}(y)= \sigma^{-1}\exp\bigg(-\frac{1}{2}(y-\mu)^2\sigma^{-2}\bigg)\]</span></p>
 </section>
 <section id="distribuições-elípticas-3" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuições Elípticas</h2>
@@ -585,8 +585,8 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 *
 
 
 Coefficients:
-beta0 beta1 beta2 sigma 
-    2     3     2     3 </code></pre>
+   beta0    beta1    beta2    sigma 
+2.000003 3.000004 2.000004 5.000000 </code></pre>
 </div>
 </div>
 </section>
@@ -602,14 +602,14 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 +
 
 Residuals:
           Min            1Q        Median            3Q           Max 
--3.586127e-07 -2.255336e-07 -9.377752e-08 -3.687817e-08  1.124831e-07 
+-1.255022e-05 -7.014164e-06 -1.906953e-06  2.476041e-06  7.271370e-06 
 
 Coefficients:
       Estimate Std_Error P_Value
-beta0        2    No Sei  No Sei
-beta1        3    No Sei  No Sei
-beta2        2    No Sei  No Sei
-sigma        3    No Sei  No Sei
+beta0 2.000003    No Sei  No Sei
+beta1 3.000004    No Sei  No Sei
+beta2 2.000004    No Sei  No Sei
+sigma 5.000000    No Sei  No Sei
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
 </div>

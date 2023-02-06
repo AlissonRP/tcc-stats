@@ -90,7 +90,7 @@ $$f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}
 * $\Sigma = \sigma^2$
 * $g(u) = \exp(-\frac{u}{2})$
 
-$$f_{Y}(y)= \sigma^{-1/2}\exp\bigg(-\frac{1}{2}(y-\mu)^2\sigma^{-2}\bigg)$$
+$$f_{Y}(y)= \sigma^{-1}\exp\bigg(-\frac{1}{2}(y-\mu)^2\sigma^{-2}\bigg)$$
 
 
 
