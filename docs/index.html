@@ -499,13 +499,13 @@
 </section>
 <section id="modelos-não-lineares" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelos não Lineares</h2>
-<p><span class="math display">\[Y_i = h(x, \mathbf{\theta}) + \epsilon_i \quad \text{onde}\quad   \epsilon_i \sim \xi(0, \sigma^2)\]</span></p>
+<p><span class="math display">\[Y_i = h(x_i, \mathbf{\theta}) + \epsilon_i \quad \text{onde}\quad   \epsilon_i \sim \xi(0, \sigma^2)\]</span></p>
 <ul>
 <li><span class="math inline">\(Y_i = \theta_1 + \dfrac{\theta_2}{2 + \theta_3x_i^{\theta_4}} + \epsilon_i\)</span></li>
 </ul>
 <p><br></p>
 <ul>
-<li><span class="math inline">\(z_i = \exp\bigg(\beta_0 + \dfrac{\beta_1x_{1i}}{1 + \beta_3x_{4i}}\bigg) + \epsilon_i\)</span></li>
+<li><span class="math inline">\(Y_i = \exp\bigg(\beta_0 + \dfrac{\beta_1x_{1i}}{1 + \beta_3x_{4i}}\bigg) + \epsilon_i\)</span></li>
 </ul>
 </section>
 <section id="estimação-dos-parâmetros" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
@@ -585,8 +585,8 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 *
 
 
 Coefficients:
-   beta0    beta1    beta2    sigma 
-2.000003 3.000004 2.000004 5.000000 </code></pre>
+beta0 beta1 beta2 sigma 
+    2     3     2     1 </code></pre>
 </div>
 </div>
 </section>
@@ -602,14 +602,14 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 +
 
 Residuals:
           Min            1Q        Median            3Q           Max 
--1.255022e-05 -7.014164e-06 -1.906953e-06  2.476041e-06  7.271370e-06 
+-3.472401e-09 -3.176591e-09 -2.646479e-09 -2.328028e-09 -1.687745e-09 
 
 Coefficients:
       Estimate Std_Error P_Value
-beta0 2.000003    No Sei  No Sei
-beta1 3.000004    No Sei  No Sei
-beta2 2.000004    No Sei  No Sei
-sigma 5.000000    No Sei  No Sei
+beta0        2    No Sei  No Sei
+beta1        3    No Sei  No Sei
+beta2        2    No Sei  No Sei
+sigma        1    No Sei  No Sei
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
 </div>
