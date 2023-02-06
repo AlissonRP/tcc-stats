@@ -1,6 +1,6 @@
 ---
 title: "O Modelo de Regressão com Parametrização Geral"
-subtitle: "E Sua Implementação Computacional"
+subtitle: "Uma Proposta de Implementação em Linguagem R"
 author: "<br> Alisson Rosa <br> <br> Orientadora: Prof. Laís Helen Loose"
 title-slide-attributes:
   data-background-image: "https://img.freepik.com/vector-premium/fondo-abstracto-puntos-lineas-que-cruzan-colores-azul-claro_444390-6877.jpg?w=2000"
