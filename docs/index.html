@@ -449,24 +449,24 @@
 <li><span class="math inline">\(\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du &lt; \infty\)</span></li>
 </ul>
 </section>
-<section id="distribuições-eliptícas" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
-<h2>Distribuições Eliptícas</h2>
+<section id="distribuições-elípticas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
+<h2>Distribuições Elípticas</h2>
 <ul>
 <li>Para o caso da Normal univariada:</li>
 <li><span class="math inline">\(\Sigma = \sigma^2\)</span></li>
 <li><span class="math inline">\(g(u) = \exp(-\frac{u}{2})\)</span></li>
 </ul>
 </section>
-<section id="distribuições-eliptícas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
-<h2>Distribuições Eliptícas</h2>
+<section id="distribuições-elípticas-2" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
+<h2>Distribuições Elípticas</h2>
 <p><span class="math display">\[f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
 <ul>
 <li><span class="math inline">\(\Sigma = \sigma^2\)</span></li>
 <li><span class="math inline">\(g(u) = \exp(-\frac{u}{2})\)</span></li>
 </ul>
-<p><span class="math display">\[f_{Y}(y)= \sigma^{-1/2}\exp[-\frac{1}{2}(y-\mu)^2\sigma^{-2}]\]</span></p>
+<p><span class="math display">\[f_{Y}(y)= \sigma^{-1/2}\exp\bigg(-\frac{1}{2}(y-\mu)^2\sigma^{-2}\bigg)\]</span></p>
 </section>
-<section id="distribuições-elípticas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
+<section id="distribuições-elípticas-3" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuições Elípticas</h2>
 
 <img data-src="imgs/g_func.png" class="r-stretch"></section>
@@ -499,13 +499,13 @@
 </section>
 <section id="modelos-não-lineares" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelos não Lineares</h2>
-<p><span class="math display">\[Y_i = h(x, \mathbf{\theta}) + u_i \quad \text{onde}\quad   u_i \sim \xi(0, \sigma^2)\]</span></p>
+<p><span class="math display">\[Y_i = h(x, \mathbf{\theta}) + \epsilon_i \quad \text{onde}\quad   \epsilon_i \sim \xi(0, \sigma^2)\]</span></p>
 <ul>
-<li><span class="math inline">\(Y_i = \theta_1 + \dfrac{\theta_2}{2 + \theta_3x_i^{\theta_4}} + u_i\)</span></li>
+<li><span class="math inline">\(Y_i = \theta_1 + \dfrac{\theta_2}{2 + \theta_3x_i^{\theta_4}} + \epsilon_i\)</span></li>
 </ul>
 <p><br></p>
 <ul>
-<li><span class="math inline">\(z_i = \exp\bigg(\beta_0 + \dfrac{\beta_1x_{1i}}{1 + \beta_3x_{4i}}\bigg) + u_i\)</span></li>
+<li><span class="math inline">\(z_i = \exp\bigg(\beta_0 + \dfrac{\beta_1x_{1i}}{1 + \beta_3x_{4i}}\bigg) + \epsilon_i\)</span></li>
 </ul>
 </section>
 <section id="estimação-dos-parâmetros" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
@@ -586,7 +586,7 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 *
 
 Coefficients:
    beta0    beta1    beta2    sigma 
-2.000001 3.000000 2.000003 2.000000 </code></pre>
+2.000000 3.000001 2.000000 4.000000 </code></pre>
 </div>
 </div>
 </section>
@@ -602,14 +602,14 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 +
 
 Residuals:
           Min            1Q        Median            3Q           Max 
--1.041757e-05 -4.138289e-06 -3.647572e-07  9.457645e-07  4.961159e-06 
+-7.167063e-07 -5.428931e-07  1.272463e-07  5.817480e-07  1.816259e-06 
 
 Coefficients:
       Estimate Std_Error P_Value
-beta0 2.000001    No Sei  No Sei
-beta1 3.000000    No Sei  No Sei
-beta2 2.000003    No Sei  No Sei
-sigma 2.000000    No Sei  No Sei
+beta0 2.000000    No Sei  No Sei
+beta1 3.000001    No Sei  No Sei
+beta2 2.000000    No Sei  No Sei
+sigma 4.000000    No Sei  No Sei
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
 </div>
