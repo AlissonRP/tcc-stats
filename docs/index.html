@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.483">
 
-  <meta name="author" content="  Alisson Rosa     Orientador: Prof.&nbsp;Laís Helen Loose">
+  <meta name="author" content="  Alisson Rosa     Orientadora: Prof.&nbsp;Laís Helen Loose">
   <title>O Modelo de Regressão com Parametrização Geral</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -406,7 +406,7 @@
 <section id="title-slide" data-background-image="https://img.freepik.com/vector-premium/fondo-abstracto-puntos-lineas-que-cruzan-colores-azul-claro_444390-6877.jpg?w=2000" data-background-opacity="0.04" class="center">
   <h1 class="title">O Modelo de Regressão com Parametrização Geral</h1>
   <p class="subtitle">E Sua Implementação Computacional</p>
-  <p class="author"><br> Alisson Rosa <br> <br> Orientador: Prof.&nbsp;Laís Helen Loose</p>
+  <p class="author"><br> Alisson Rosa <br> <br> Orientadora: Prof.&nbsp;Laís Helen Loose</p>
 </section>
 
 <section id="introdução" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
@@ -425,39 +425,49 @@
 </ul>
 <p><br></p>
 <ul>
-<li class="fragment">Problemas?</li>
+<li class="fragment">Próximos Passos?</li>
 </ul>
 </div>
 </section>
-<section id="distribuições-eliptícas" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
-<h2>Distribuições Eliptícas</h2>
+<section id="histórico" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
+<h2>Histórico</h2>
+<ul>
+<li><p>Distribuições Elípticas - <span class="citation" data-cites="fang">Fang (<a href="#/ref-fang" role="doc-biblioref" onclick="return false;">1990</a>)</span></p></li>
+<li><p>Modelos Elípticos com Parametrização Geral - <span class="citation" data-cites="lemonte2011multivariate">Lemonte e Patriota (<a href="#/ref-lemonte2011multivariate" role="doc-biblioref" onclick="return false;">2011</a>)</span></p></li>
+<li><p>Aprimoramento da Estimação dos Modelos - <span class="citation" data-cites="melo2018improved">Melo, Ferrari, e Patriota (<a href="#/ref-melo2018improved" role="doc-biblioref" onclick="return false;">2018</a>)</span></p></li>
+<li><p>Condições de Regularidade - <span class="citation" data-cites="loose2019condiccoes">Loose (<a href="#/ref-loose2019condiccoes" role="doc-biblioref" onclick="return false;">2019</a>)</span></p></li>
+<li><p>Implementação Computacional Para o Caso da Distribuição Normal - <span class="citation" data-cites="perette2019implementaccao">Perette (<a href="#/ref-perette2019implementaccao" role="doc-biblioref" onclick="return false;">2019</a>)</span></p></li>
+</ul>
+</section>
+<section id="distribuições-elípticas" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
+<h2>Distribuições Elípticas</h2>
 <p>O vetor aleatório <span class="math inline">\(\mathbf{Y}\)</span> tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:</p>
-<p><span class="math display">\[f_{\mathbf{Y}}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
+<p><span class="math display">\[f_{\mathbf{Y}}(\mathbf{y})= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
 <p>em que g é dita função geradora e satisfaz:</p>
 <ul>
 <li><span class="math inline">\(g:[0, \infty) \rightarrow [0, \infty]\)</span></li>
 <li><span class="math inline">\(\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du &lt; \infty\)</span></li>
 </ul>
 </section>
-<section id="distribuições-eliptícas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
+<section id="distribuições-eliptícas" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuições Eliptícas</h2>
 <ul>
 <li>Para o caso da Normal univariada:</li>
-<li><span class="math inline">\(\Sigma = \sigma\)</span></li>
-<li><span class="math inline">\(g(u) = \exp(\frac{-u}{2})\)</span></li>
+<li><span class="math inline">\(\Sigma = \sigma^2\)</span></li>
+<li><span class="math inline">\(g(u) = \exp(-\frac{u}{2})\)</span></li>
 </ul>
 </section>
-<section id="distribuições-eliptícas-2" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
+<section id="distribuições-eliptícas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuições Eliptícas</h2>
 <p><span class="math display">\[f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
 <ul>
-<li><span class="math inline">\(\Sigma = \sigma\)</span></li>
-<li><span class="math inline">\(g(u) = \exp(\frac{-u}{2})\)</span></li>
+<li><span class="math inline">\(\Sigma = \sigma^2\)</span></li>
+<li><span class="math inline">\(g(u) = \exp(-\frac{u}{2})\)</span></li>
 </ul>
-<p><span class="math display">\[f_{Y}(y)= \sigma^{-1/2}\exp[-\frac{1}{2}(y-\mu)^2\sigma^{-1}]\]</span></p>
+<p><span class="math display">\[f_{Y}(y)= \sigma^{-1/2}\exp[-\frac{1}{2}(y-\mu)^2\sigma^{-2}]\]</span></p>
 </section>
-<section id="distribuições-eliptícas-3" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
-<h2>Distribuições Eliptícas</h2>
+<section id="distribuições-elípticas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
+<h2>Distribuições Elípticas</h2>
 
 <img data-src="imgs/g_func.png" class="r-stretch"></section>
 <section id="propriedade" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
@@ -471,26 +481,31 @@
 <section id="modelo-de-regressão-com-parametrização-geral" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelo de Regressão com Parametrização Geral</h2>
 <p>Seja <span class="math inline">\(\mathbf{Y_i}\)</span> um vetor aleatório e <span class="math inline">\(x_i\)</span> covariáveis conhecidas, o modelo definido como:</p>
-<p><span class="math display">\[\mathbf{Y_i} = \mathbf{\mu}_i(\theta) + \mathbf{\epsilon}_i\]</span></p>
+<p><span class="math display">\[\mathbf{Y_i} = \mathbf{\mu}_i(\theta, x_i) + \mathbf{\epsilon}_i, \quad i=1\dots n\]</span></p>
+<p><br></p>
+<p>onde <span class="math inline">\(\mathbf{\epsilon}_i \sim \xi_i(0, \Sigma_i(\theta, x_i))\)</span></p>
 </section>
 <section id="modelo-de-regressão-linear" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelo de Regressão Linear</h2>
 <p><span class="math display">\[Y_i = x_i^{T}\beta + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)\]</span></p>
 <ul>
-<li><p><span class="math inline">\(\mu_i(\theta) = x_i^T\beta\)</span></p></li>
-<li><p><span class="math inline">\(\Sigma_i(\theta) = \sigma^2\)</span></p></li>
-<li><p>Para o caso Heterocedastico <span class="math inline">\(\Sigma_i(\theta) = \sigma_i^2\)</span></p></li>
+<li><span class="math inline">\(\mu_i(\theta) = x_i^T\beta\)</span></li>
+<li><span class="math inline">\(\Sigma_i(\theta) = \sigma^2\)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li>Para o caso Heterocedástico <span class="math inline">\(\Sigma_i(\theta) = \sigma_i^2\)</span></li>
 </ul>
 </section>
 <section id="modelos-não-lineares" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
 <h2>Modelos não Lineares</h2>
-<p><span class="math display">\[Y_i = h(x, \theta) + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)\]</span></p>
+<p><span class="math display">\[Y_i = h(x, \mathbf{\theta}) + u_i \quad \text{onde}\quad   u_i \sim \xi(0, \sigma^2)\]</span></p>
 <ul>
 <li><span class="math inline">\(Y_i = \theta_1 + \dfrac{\theta_2}{2 + \theta_3x_i^{\theta_4}} + u_i\)</span></li>
 </ul>
 <p><br></p>
 <ul>
-<li><span class="math inline">\(z_i = \exp\bigg(\beta_0 + \dfrac{\beta_1x_1}{1 + \beta_3x_4}\bigg) + u_i\)</span></li>
+<li><span class="math inline">\(z_i = \exp\bigg(\beta_0 + \dfrac{\beta_1x_{1i}}{1 + \beta_3x_{4i}}\bigg) + u_i\)</span></li>
 </ul>
 </section>
 <section id="estimação-dos-parâmetros" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
@@ -571,7 +586,7 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 *
 
 Coefficients:
 beta0 beta1 beta2 sigma 
-    2     3     2     2 </code></pre>
+    2     3     2     8 </code></pre>
 </div>
 </div>
 </section>
@@ -587,26 +602,27 @@ generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 +
 
 Residuals:
           Min            1Q        Median            3Q           Max 
--5.893952e-11 -2.401093e-11  8.651468e-11  1.647008e-10  2.973621e-10 
+-5.870242e-07 -3.888642e-07  1.965252e-08  1.928900e-07  9.414091e-07 
 
 Coefficients:
       Estimate Std_Error P_Value
 beta0        2    No Sei  No Sei
 beta1        3    No Sei  No Sei
 beta2        2    No Sei  No Sei
-sigma        2    No Sei  No Sei
+sigma        8    No Sei  No Sei
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
 </div>
 </div>
 </section>
-<section id="problemas-atuais" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
-<h2>Problemas Atuais</h2>
+<section id="próximos-passos" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
+<h2>Próximos Passos</h2>
 <div>
 <ul>
 <li class="fragment"><p>Ajustar a implementação da estrutura de covariância</p></li>
 <li class="fragment"><p>Reestruturar todas as funções do <code>stats</code> para funcionar na classe <code>generalreg</code></p></li>
 <li class="fragment"><p>Implementar modelos mais específicos</p></li>
+<li class="fragment"><p>Escrever o artigo</p></li>
 <li class="fragment"><p>Entrar em mais uma luta com o <em>CRAN</em></p></li>
 </ul>
 </div>
@@ -623,11 +639,17 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-fang" class="csl-entry" role="doc-biblioentry">
+Fang, Kai Wang. 1990. <em>Symmetric multivariate and related distributions</em>. Chapman; Hall/CRC.
+</div>
 <div id="ref-lemonte2011multivariate" class="csl-entry" role="doc-biblioentry">
 Lemonte, Artur J, e Alexandre G Patriota. 2011. <span>«Multivariate elliptical models with general parameterization»</span>. <em>Statistical methodology</em> 8 (4): 389–400.
 </div>
 <div id="ref-loose2019condiccoes" class="csl-entry" role="doc-biblioentry">
 Loose, Laı́s Helen. 2019. <span>«Condi<span>ç</span><span>õ</span>es de regularidade para o modelo de regress<span>ã</span>o com parametriza<span>ç</span><span>ã</span>o geral»</span>. Tese de doutorado, Universidade de S<span>ã</span>o Paulo.
+</div>
+<div id="ref-melo2018improved" class="csl-entry" role="doc-biblioentry">
+Melo, Tatiane FN, Silvia LP Ferrari, e Alexandre G Patriota. 2018. <span>«Improved estimation in a general multivariate elliptical model»</span>. <em>Brazilian Journal of Probability and Statistics</em> 32 (1): 44–68.
 </div>
 <div id="ref-perette2019implementaccao" class="csl-entry" role="doc-biblioentry">
 Perette, André Casagrandi. 2019. <span>«Implementa<span>ç</span><span>ã</span>o no software estat<span>ı́</span>stico R de modelos de regress<span>ã</span>o normal com parametriza<span>ç</span><span>ã</span>o geral»</span>. Tese de doutorado, Universidade de S<span>ã</span>o Paulo.
