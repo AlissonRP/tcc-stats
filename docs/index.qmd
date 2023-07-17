@@ -1,6 +1,6 @@
 ---
-title: "O Modelo de Regressão com Parametrização Geral"
-subtitle: "Uma Proposta de Implementação em Linguagem R"
+title: "Implementação Computacional"
+subtitle: "Do Modelo de Regressão Chen"
 author: "<br> Alisson Rosa <br> <br> Orientadora: Prof. Laís Helen Loose"
 title-slide-attributes:
   data-background-image: "https://img.freepik.com/vector-premium/fondo-abstracto-puntos-lineas-que-cruzan-colores-azul-claro_444390-6877.jpg?w=2000"
@@ -23,251 +23,212 @@ lang: pt
 ## Introdução  {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
 ::: {.incremental}
-- Nivelamento
+- Revisão Teórica
 
 <br />
 
-- Parametrização Geral
+- Implementações Computacional
 
 <br />
 
-- Implementação
-
-<br />
-
-- Próximos Passos?
-:::
-
-
-
-## Histórico  {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
-
-* Distribuições Elípticas - @fang
-
-* Modelos Elípticos com Parametrização Geral - @lemonte2011multivariate
-
-* Aprimoramento da Estimação dos Modelos - @melo2018improved
-
-* Condições de Regularidade - @loose2019condiccoes
-
-* Implementação Computacional Para o Caso da Distribuição Normal -  @perette2019implementaccao
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Distribuições Elípticas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
-
-O vetor aleatório $\mathbf{Y}$ tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:
-
-$$f_{\mathbf{Y}}(\mathbf{y})= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]$$
-
-em que g é dita função geradora e satisfaz:
-
-* $g:[0, \infty) \rightarrow [0, \infty]$
-* $\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du < \infty$
-
-## Distribuições Elípticas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
-
-* Para o caso da Normal univariada:
- * $\Sigma = \sigma^2$
- * $g(u) = \exp(-\frac{u}{2})$
-
-## Distribuições Elípticas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
-
-
-$$f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]$$
-
-* $\Sigma = \sigma^2$
-* $g(u) = \exp(-\frac{u}{2})$
-
-$$f_{Y}(y)= \sigma^{-1}\exp\bigg(-\frac{1}{2}(y-\mu)^2\sigma^{-2}\bigg)$$
-
-
-
-
-
-
-
-
-
-
-
-
-## Distribuições Elípticas {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
-
-
-![](imgs/g_func.png)
-
-## Propriedade {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
-
-
-::: {#thm-line}
-
-## Transformações Afins {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
-
-
-
-
-Sejam A uma matrix $(rxd)$ de posto $r$ e $\mathbf{a}$ um vetor $r$-dimensional, então vale que:
-
-
-Se $\mathbf{Y} \sim \xi_d(\mu, \Sigma)$, então:
-$$\mathbf{W} = A\mathbf{Y} + a  \sim  \xi_r(A\mathbf{\mu} + a, A\Sigma A^{T})$$
-:::
-
-##  Modelo de Regressão com Parametrização Geral {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
-
-Seja $\mathbf{Y_i}$ um vetor aleatório e $x_i$ covariáveis conhecidas, o modelo fica definido como:
-
-$$\mathbf{Y_i} = \mathbf{\mu}_i(\theta, x_i) + \mathbf{\epsilon}_i, \quad i=1\dots n$$
-
-<br />
-
-onde $\mathbf{\epsilon}_i \sim \xi_i(0, \Sigma_i(\theta, x_i))$
-
-## Modelo de Regressão Linear {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
-
-$$Y_i = x_i^{T}\beta + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)$$
-
-* $\mu_i(\theta) = x_i^T\beta$
-* $\Sigma_i(\theta) = \sigma^2$
-
-<br />
-
-* Para o caso Heterocedástico $\Sigma_i(\theta) = \sigma_i^2$
-
-
-## Modelos não Lineares {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
-
-$$Y_i = h(x_i, \mathbf{\theta}) + \epsilon_i \quad \text{onde}\quad   \epsilon_i \sim \xi(0, \sigma^2)$$
-
-*  $Y_i =  \theta_1 + \dfrac{\theta_2}{2 + \theta_3x_i^{\theta_4}} + \epsilon_i$
-
-<br />
-
-*  $Y_i =  \exp\bigg(\beta_0 + \dfrac{\beta_1x_{1i}}{1 + \beta_3x_{4i}}\bigg) + \epsilon_i$
-
-
-
-## Estimação dos Parâmetros {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
-
-Pode-se encontrar os estimadores, maximizando a seguinte função:
-
-$$\ell(\theta) = \sum_{i=1}^{n}\ell_i(\theta)$$
-
-
-Onde $\ell_i(\theta)=-\dfrac{1}{2}\log|\Sigma_i|+\log g(u_i)$ e
-
-* $u_i = z_i^{T}\Sigma_i^{-1}z_i$
-
-* $z_i = Y_i - \mu_i$
-
-
-
-
-# Objetivo {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.2}
-
-* Implementar Computacionalmente o Modelo em R
-
-## Implementação {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
-Modelos "tradicionais" em R:
-
-::: incremental
-
-* ```y ~ x1 + x2 + x3 + x8```
-
-<br>
-
-
-* ```Species ~ Sepal.Length + Petal.Length```
-
-
-* ```dependente ~ .```
-
-
-<br>
-
-* "Qualquer" estrutura de média e covariância
-:::
-
-
-## Implementação {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
-
-::: incremental
-* `mu_formula` a model formula including variables and parameters
-  * `y ~ beta0 + beta1 * X1`
-  * `z ~ w1 + w7 * price`
-
-* Mas quem são os parâmetros?
-:::
-
-
-## {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
-
-* `var_formula` a  model formula for the diagonal of covariance matrix
-    * `~ sig1 + sig2 * X2`
-    * `~ w1 + sig1 * price`
-* `data` A data frame in which to evaluate the variables in `mu_formula` and `var_formula`.
-* `dist` Inform the distribution of your data
-
-
-## {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
-```{r}
-#| echo: true
-library(generalreg)
-X <- data.frame(x1 = rnorm(50), x2 = rnorm(50))
-y <- 2 + 3 * X$x1 + 2 * X$x2
-data <- data.frame(y, X)
-fit <- generalreg(data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 * x2, dist='normal')
-fit
-```
-
-## {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
-```{r}
-#| echo: true
-
-fit |> summary()
-```
-
-
-
-
-## Próximos Passos {background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&v=beta&t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" background-opacity=0.07}
-
-::: incremental
-* Ajustar a implementação  da estrutura de covariância
-
-
-* Reestruturar todas as funções do `stats` para funcionar na classe `generalreg`
-
-* Implementar modelos mais específicos
-
-* Escrever o artigo
-
-* Entrar em mais uma luta com o *CRAN*
-
+- Aplicações
 
 
 :::
 
 
+## Distribuição Chen {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
+
+
+
+\begin{align*}
+F(y; \lambda,\delta)= 1 - \exp \left\lbrace   \delta \left[ 1-\exp(y^{\lambda}) \right] \right\rbrace 
+
+\end{align*}
+
+
+Por consequência a Função Quantilica fica dada por:
+
+\begin{align}
+\label{quant}
+Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)}{\delta}\right) \right] \right\rbrace  ^{\frac{1}{\lambda}}, \quad 0<\tau<1.
+\end{align}
+
+
+em que $y>0$    
+$\delta , \lambda > 0$ são os parâmetros de forma 
 
 
 
 
-# Obrigado pela Atenção! {background-image="imgs/ufsm.png" background-opacity=0.02}
+## Distribuição Chen {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
+
+
+::: {.incremental}
+
+
+* Considera-se $\mu_{\tau}= Q(\tau; \lambda , \delta)$ representando o $\tau$-ésimo quantil da distribuição Chen e
+* Supõe-se  que $\delta$ possa ser expresso como $$\delta=\dfrac{\log(1-\tau)}{1-\exp(\mu_{\tau}^{\lambda})}$$
+
+* Então tem-se $$F(y; \lambda, \mu_{\tau}, \tau)= 1 - \exp \left\lbrace  \dfrac{\log(1-\tau)}{1-\exp(\mu_{\tau}^{\lambda})} [ 1-\exp(y^{\lambda})] \right\rbrace  , \quad  y > 0.$$
+
+:::
+
+
+## Modelo de Regressão 
+
+CITAÇÃO 1 - GAJALARDO  
+
+CITAÇÃO 2 - GUERRA RAMIREZ  
+
+CITAÇÃO 3  SAULO
+
+
+
+
+
+
+
+
+
+## Inferência - Quantidades Básicas
+
+A função de log-verossimilhança fica dada por:
+$$
+\ell(\mathbf{\theta})=\sum\limits_{t=1}^{n}\ell_t(\mu_t,\lambda),
+$$
+
+$$
+\ell_t(\mu_t,\lambda)=\log\prod_{i=1}^{n}\dfrac{dF(y; \lambda, \mu_{\tau}, \tau)}{dy}.
+$$
+
+
+## Inferência - Intervalos de Confiança
+
+Seja $\theta_r, r= 1,2,\ldots,k + 2$, o $r$-ésimo componente do vetor de parâmetros $\mathbf{\theta}$. O intervalo de confiança assintótico de $100 (1- \alpha)\%$ para $\theta_r$ é dado por
+\begin{align*}
+\left[ \widehat{\theta}_r \pm z_{1-\alpha /2} \mbox{se}( \widehat{\theta}_r )\right] , \quad r=1,\ldots, k + 2,
+\end{align*}
+
+
+
+em que $z_{1-\alpha/2}$ é o quantil da distribuição normal padrão, tal que $P(Z<z_{1-\alpha/2})=1-\alpha/2$, com $Z$ variável aleatória com distribuição normal padrão  e $\text{se}(\widehat{\theta}_r)$ é o erro padrão assintótico de $\widehat{\theta}_r$
+
+
+## Inferência - Teste de Hipótese
+
+
+Agora, consideremos o interesse em testar as hipóteses
+\begin{align*}
+   H_0: \theta_r = \theta_r^0 \quad  versus \quad H_1: \theta_r \neq \theta_r^0,
+\end{align*}
+em que $\theta_r^0$ representa um valor específico para o parâmetro desconhecido $\theta_r$. Uma estatística comumente utilizada para testar essas hipóteses é a raiz quadrada da estatística de Wald, definida por
+\begin{align*}
+z=\frac{\widehat{\theta}_r - \theta_r^0}{\mbox{se}( \widehat{\theta}_r )}.
+\end{align*}
+ Sob $H_0$ e para $n$ grande, $z$ tem uma distribuição normal padrão. A hipótese nula é rejeitada para valores de $|z|$ maiores que o quantil $z_{1-\alpha/2}$
+
+
+## Medidas de Diagnóstico
+
+Para avaliar a adequação do ajuste do modelo em dados reais consideramos o resíduo quantílico, que  é definido como \citep{dunn1996}
+\begin{align*}
+ r_t= \Phi^{-1}\left\lbrace F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\right\rbrace,
+  \end{align*}
+em que $\Phi(\cdot)$  é a função de distribuição acumulada da normal padrão e $F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )$ é a função de distribuição acumulada dada em \eqref{acumulada}. Se os parâmetros do modelo são estimados consistentemente, $r_t$  converge para uma distribuição normal padrão,  independente da distribuição da variável resposta.
+
+
+## Medidas de Diagnóstico
+
+O coeficiente de determinação generalizado proposto em \cite{Nagelkerke1991}, é uma medida global de qualidade do ajuste é dado por 
+\vspace*{-0.3cm}
+\begin{align*}
+R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\bm{\theta}}) -\ell(\widehat{\bm{\theta}}_0) \right] \right],
+\end{align*}
+em que $\ell(\widehat{\bm{\theta}}_0)$ é a log-verossimilhança maximizada do modelo sem regressores (nulo) e a $\ell(\widehat{\bm{\theta}})$  é a log-verossimilhança maximizada do modelo ajustado. 
+
+
+# O Pacote
+
+
+
+![](imgs/Rep1.png){.absolute top=150 right=100 width="180" height="950"}
+
+## Estrutura Básica
+
+* Unidade Básica de código compartilhavel
+
+* Simplificação
+
+## Funções básicas
+
+* `chen_reg`
+* `rchen`
+* `auto_chen`
+* `best_chen`
+
+
+
+##  `rchen` e `chen_reg`
+
+
+
+##  `auto_chen` e `best_chen`
+
+## Principais Métodos Genéricos
+
+* summary
+* plot
+* residuals
+* predict
+
+
+
+
+
+
+
+
+## Interface Web (Shiny)
+
+## {background-iframe="https://alissonrp.shinyapps.io/full_app/?_ga=2.83236885.2012925531.1652155237-1564274603.1652155237" background-interactive="true"}
+
+# Aplicação
+
+##
+
+
+*  Os dados utilizados neste estudo são provenientes do Instituto Brasileiro de Geografia e Estatística (IBGE)
+*  desenvolver um modelo de regressão quantílico Chen para prever quantis do PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019
+
+## Aplicação
+*  Consideramos como variável resposta o PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019 que chamaremos de PIB referencial, que é dado por
+$$
+Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
+$$
+
+
+## Aplicação
+
+
+* IDHe: Índice de desenvolvimento humano educacional no ano de 2017 ($x_1$);
+* Área: Área do estado considerado  em 2019 ($x_2$);
+* Densidade demográfica: Densidade demográfica do estado considerado 2019 ($x_3$);
+* Pobreza: Índice de pobreza do estado em questão em 2019 ($x_4$).
+
+
+## Densidade
+
+
+## Resumo do Ajuste
+
+
+## Gráficos
+
+
+
+# Considerações finais
+
+## 
 
 # Bibliografia
-
-
-

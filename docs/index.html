@@ -4,7 +4,7 @@
   <meta name="generator" content="quarto-0.9.483">
 
   <meta name="author" content="  Alisson Rosa     Orientadora: Prof.&nbsp;Laís Helen Loose">
-  <title>O Modelo de Regressão com Parametrização Geral</title>
+  <title>Implementação Computacional</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -17,88 +17,6 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -404,8 +322,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="https://img.freepik.com/vector-premium/fondo-abstracto-puntos-lineas-que-cruzan-colores-azul-claro_444390-6877.jpg?w=2000" data-background-opacity="0.04" class="center">
-  <h1 class="title">O Modelo de Regressão com Parametrização Geral</h1>
-  <p class="subtitle">Uma Proposta de Implementação em Linguagem R</p>
+  <h1 class="title">Implementação Computacional</h1>
+  <p class="subtitle">Do Modelo de Regressão Chen</p>
   <p class="author"><br> Alisson Rosa <br> <br> Orientadora: Prof.&nbsp;Laís Helen Loose</p>
 </section>
 
@@ -413,253 +331,179 @@
 <h2>Introdução</h2>
 <div>
 <ul>
-<li class="fragment">Nivelamento</li>
+<li class="fragment">Revisão Teórica</li>
 </ul>
 <p><br></p>
 <ul>
-<li class="fragment">Parametrização Geral</li>
+<li class="fragment">Implementações Computacional</li>
 </ul>
 <p><br></p>
 <ul>
-<li class="fragment">Implementação</li>
-</ul>
-<p><br></p>
-<ul>
-<li class="fragment">Próximos Passos?</li>
+<li class="fragment">Aplicações</li>
 </ul>
 </div>
 </section>
-<section id="histórico" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
-<h2>Histórico</h2>
-<ul>
-<li><p>Distribuições Elípticas - <span class="citation" data-cites="fang">Fang (<a href="#/ref-fang" role="doc-biblioref" onclick="return false;">1990</a>)</span></p></li>
-<li><p>Modelos Elípticos com Parametrização Geral - <span class="citation" data-cites="lemonte2011multivariate">Lemonte e Patriota (<a href="#/ref-lemonte2011multivariate" role="doc-biblioref" onclick="return false;">2011</a>)</span></p></li>
-<li><p>Aprimoramento da Estimação dos Modelos - <span class="citation" data-cites="melo2018improved">Melo, Ferrari, e Patriota (<a href="#/ref-melo2018improved" role="doc-biblioref" onclick="return false;">2018</a>)</span></p></li>
-<li><p>Condições de Regularidade - <span class="citation" data-cites="loose2019condiccoes">Loose (<a href="#/ref-loose2019condiccoes" role="doc-biblioref" onclick="return false;">2019</a>)</span></p></li>
-<li><p>Implementação Computacional Para o Caso da Distribuição Normal - <span class="citation" data-cites="perette2019implementaccao">Perette (<a href="#/ref-perette2019implementaccao" role="doc-biblioref" onclick="return false;">2019</a>)</span></p></li>
-</ul>
-</section>
-<section id="distribuições-elípticas" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
-<h2>Distribuições Elípticas</h2>
-<p>O vetor aleatório <span class="math inline">\(\mathbf{Y}\)</span> tem distribuição elíptica se sua função densidade de probabilidade existe e é dada por:</p>
-<p><span class="math display">\[f_{\mathbf{Y}}(\mathbf{y})= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
-<p>em que g é dita função geradora e satisfaz:</p>
-<ul>
-<li><span class="math inline">\(g:[0, \infty) \rightarrow [0, \infty]\)</span></li>
-<li><span class="math inline">\(\int_{0}^{\infty}u^{\frac{d}{2} -1}g(u)du &lt; \infty\)</span></li>
-</ul>
-</section>
-<section id="distribuições-elípticas-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
-<h2>Distribuições Elípticas</h2>
-<ul>
-<li>Para o caso da Normal univariada:</li>
-<li><span class="math inline">\(\Sigma = \sigma^2\)</span></li>
-<li><span class="math inline">\(g(u) = \exp(-\frac{u}{2})\)</span></li>
-</ul>
-</section>
-<section id="distribuições-elípticas-2" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
-<h2>Distribuições Elípticas</h2>
-<p><span class="math display">\[f_{Y}(y)= |\Sigma|^{-1/2}g[(\mathbf{y}-\mathbf{\mu})^{T}\Sigma^{-1}(\mathbf{y}-\mathbf{\mu})]\]</span></p>
-<ul>
-<li><span class="math inline">\(\Sigma = \sigma^2\)</span></li>
-<li><span class="math inline">\(g(u) = \exp(-\frac{u}{2})\)</span></li>
-</ul>
-<p><span class="math display">\[f_{Y}(y)= \sigma^{-1}\exp\bigg(-\frac{1}{2}(y-\mu)^2\sigma^{-2}\bigg)\]</span></p>
-</section>
-<section id="distribuições-elípticas-3" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
-<h2>Distribuições Elípticas</h2>
+<section id="distribuição-chen" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
+<h2>Distribuição Chen</h2>
+<p><span class="math display">\[\begin{align*}
+F(y; \lambda,\delta)= 1 - \exp \left\lbrace   \delta \left[ 1-\exp(y^{\lambda}) \right] \right\rbrace
 
-<img data-src="imgs/g_func.png" class="r-stretch"></section>
-<section id="propriedade" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
-<h2>Propriedade</h2>
-<div id="thm-line" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 1 (Transformações Afins) </strong></span>Sejam A uma matrix <span class="math inline">\((rxd)\)</span> de posto <span class="math inline">\(r\)</span> e <span class="math inline">\(\mathbf{a}\)</span> um vetor <span class="math inline">\(r\)</span>-dimensional, então vale que:</p>
-<p>Se <span class="math inline">\(\mathbf{Y} \sim \xi_d(\mu, \Sigma)\)</span>, então:</p>
-<p><span class="math display">\[\mathbf{W} = A\mathbf{Y} + a  \sim  \xi_r(A\mathbf{\mu} + a, A\Sigma A^{T})\]</span></p>
+\end{align*}\]</span></p>
+<p>Por consequência a Função Quantilica fica dada por:</p>
+<p><span class="math display">\[\begin{align}
+\label{quant}
+Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)}{\delta}\right) \right] \right\rbrace  ^{\frac{1}{\lambda}}, \quad 0&lt;\tau&lt;1.
+\end{align}\]</span></p>
+<p>em que <span class="math inline">\(y&gt;0\)</span><br>
+<span class="math inline">\(\delta , \lambda &gt; 0\)</span> são os parâmetros de forma</p>
+</section>
+<section id="distribuição-chen-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
+<h2>Distribuição Chen</h2>
+<div>
+<ul>
+<li class="fragment"><p>Considera-se <span class="math inline">\(\mu_{\tau}= Q(\tau; \lambda , \delta)\)</span> representando o <span class="math inline">\(\tau\)</span>-ésimo quantil da distribuição Chen e</p></li>
+<li class="fragment"><p>Supõe-se que <span class="math inline">\(\delta\)</span> possa ser expresso como <span class="math display">\[\delta=\dfrac{\log(1-\tau)}{1-\exp(\mu_{\tau}^{\lambda})}\]</span></p></li>
+<li class="fragment"><p>Então tem-se <span class="math display">\[F(y; \lambda, \mu_{\tau}, \tau)= 1 - \exp \left\lbrace  \dfrac{\log(1-\tau)}{1-\exp(\mu_{\tau}^{\lambda})} [ 1-\exp(y^{\lambda})] \right\rbrace  , \quad  y &gt; 0.\]</span></p></li>
+</ul>
 </div>
 </section>
-<section id="modelo-de-regressão-com-parametrização-geral" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
-<h2>Modelo de Regressão com Parametrização Geral</h2>
-<p>Seja <span class="math inline">\(\mathbf{Y_i}\)</span> um vetor aleatório e <span class="math inline">\(x_i\)</span> covariáveis conhecidas, o modelo fica definido como:</p>
-<p><span class="math display">\[\mathbf{Y_i} = \mathbf{\mu}_i(\theta, x_i) + \mathbf{\epsilon}_i, \quad i=1\dots n\]</span></p>
-<p><br></p>
-<p>onde <span class="math inline">\(\mathbf{\epsilon}_i \sim \xi_i(0, \Sigma_i(\theta, x_i))\)</span></p>
+<section id="modelo-de-regressão" class="slide level2">
+<h2>Modelo de Regressão</h2>
+<p>CITAÇÃO 1 - GAJALARDO</p>
+<p>CITAÇÃO 2 - GUERRA RAMIREZ</p>
+<p>CITAÇÃO 3 SAULO</p>
 </section>
-<section id="modelo-de-regressão-linear" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
-<h2>Modelo de Regressão Linear</h2>
-<p><span class="math display">\[Y_i = x_i^{T}\beta + e_i \quad \text{onde}\quad   e_i \sim \xi(0, \sigma^2)\]</span></p>
-<ul>
-<li><span class="math inline">\(\mu_i(\theta) = x_i^T\beta\)</span></li>
-<li><span class="math inline">\(\Sigma_i(\theta) = \sigma^2\)</span></li>
-</ul>
-<p><br></p>
-<ul>
-<li>Para o caso Heterocedástico <span class="math inline">\(\Sigma_i(\theta) = \sigma_i^2\)</span></li>
-</ul>
+<section id="inferência---quantidades-básicas" class="slide level2">
+<h2>Inferência - Quantidades Básicas</h2>
+<p>A função de log-verossimilhança fica dada por:</p>
+<p><span class="math display">\[
+\ell(\mathbf{\theta})=\sum\limits_{t=1}^{n}\ell_t(\mu_t,\lambda),
+\]</span></p>
+<p><span class="math display">\[
+\ell_t(\mu_t,\lambda)=\log\prod_{i=1}^{n}\dfrac{dF(y; \lambda, \mu_{\tau}, \tau)}{dy}.
+\]</span></p>
 </section>
-<section id="modelos-não-lineares" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
-<h2>Modelos não Lineares</h2>
-<p><span class="math display">\[Y_i = h(x_i, \mathbf{\theta}) + \epsilon_i \quad \text{onde}\quad   \epsilon_i \sim \xi(0, \sigma^2)\]</span></p>
-<ul>
-<li><span class="math inline">\(Y_i = \theta_1 + \dfrac{\theta_2}{2 + \theta_3x_i^{\theta_4}} + \epsilon_i\)</span></li>
-</ul>
-<p><br></p>
-<ul>
-<li><span class="math inline">\(Y_i = \exp\bigg(\beta_0 + \dfrac{\beta_1x_{1i}}{1 + \beta_3x_{4i}}\bigg) + \epsilon_i\)</span></li>
-</ul>
+<section id="inferência---intervalos-de-confiança" class="slide level2">
+<h2>Inferência - Intervalos de Confiança</h2>
+<p>Seja <span class="math inline">\(\theta_r, r= 1,2,\ldots,k + 2\)</span>, o <span class="math inline">\(r\)</span>-ésimo componente do vetor de parâmetros <span class="math inline">\(\mathbf{\theta}\)</span>. O intervalo de confiança assintótico de <span class="math inline">\(100 (1- \alpha)\%\)</span> para <span class="math inline">\(\theta_r\)</span> é dado por <span class="math display">\[\begin{align*}
+\left[ \widehat{\theta}_r \pm z_{1-\alpha /2} \mbox{se}( \widehat{\theta}_r )\right] , \quad r=1,\ldots, k + 2,
+\end{align*}\]</span></p>
+<p>em que <span class="math inline">\(z_{1-\alpha/2}\)</span> é o quantil da distribuição normal padrão, tal que <span class="math inline">\(P(Z&lt;z_{1-\alpha/2})=1-\alpha/2\)</span>, com <span class="math inline">\(Z\)</span> variável aleatória com distribuição normal padrão e <span class="math inline">\(\text{se}(\widehat{\theta}_r)\)</span> é o erro padrão assintótico de <span class="math inline">\(\widehat{\theta}_r\)</span></p>
 </section>
-<section id="estimação-dos-parâmetros" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
-<h2>Estimação dos Parâmetros</h2>
-<p>Pode-se encontrar os estimadores, maximizando a seguinte função:</p>
-<p><span class="math display">\[\ell(\theta) = \sum_{i=1}^{n}\ell_i(\theta)\]</span></p>
-<p>Onde <span class="math inline">\(\ell_i(\theta)=-\dfrac{1}{2}\log|\Sigma_i|+\log g(u_i)\)</span> e</p>
-<ul>
-<li><p><span class="math inline">\(u_i = z_i^{T}\Sigma_i^{-1}z_i\)</span></p></li>
-<li><p><span class="math inline">\(z_i = Y_i - \mu_i\)</span></p></li>
-</ul>
+<section id="inferência---teste-de-hipótese" class="slide level2">
+<h2>Inferência - Teste de Hipótese</h2>
+<p>Agora, consideremos o interesse em testar as hipóteses <span class="math display">\[\begin{align*}
+   H_0: \theta_r = \theta_r^0 \quad  versus \quad H_1: \theta_r \neq \theta_r^0,
+\end{align*}\]</span> em que <span class="math inline">\(\theta_r^0\)</span> representa um valor específico para o parâmetro desconhecido <span class="math inline">\(\theta_r\)</span>. Uma estatística comumente utilizada para testar essas hipóteses é a raiz quadrada da estatística de Wald, definida por <span class="math display">\[\begin{align*}
+z=\frac{\widehat{\theta}_r - \theta_r^0}{\mbox{se}( \widehat{\theta}_r )}.
+\end{align*}\]</span> Sob <span class="math inline">\(H_0\)</span> e para <span class="math inline">\(n\)</span> grande, <span class="math inline">\(z\)</span> tem uma distribuição normal padrão. A hipótese nula é rejeitada para valores de <span class="math inline">\(|z|\)</span> maiores que o quantil <span class="math inline">\(z_{1-\alpha/2}\)</span></p>
+</section>
+<section id="medidas-de-diagnóstico" class="slide level2">
+<h2>Medidas de Diagnóstico</h2>
+<p>Para avaliar a adequação do ajuste do modelo em dados reais consideramos o resíduo quantílico, que é definido como <span class="math display">\[\begin{align*}
+r_t= \Phi^{-1}\left\lbrace F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\right\rbrace,
+  \end{align*}\]</span> em que <span class="math inline">\(\Phi(\cdot)\)</span> é a função de distribuição acumulada da normal padrão e <span class="math inline">\(F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\)</span> é a função de distribuição acumulada dada em <span class="math inline">\(\eqref{acumulada}\)</span>. Se os parâmetros do modelo são estimados consistentemente, <span class="math inline">\(r_t\)</span> converge para uma distribuição normal padrão, independente da distribuição da variável resposta.</p>
+</section>
+<section id="medidas-de-diagnóstico-1" class="slide level2">
+<h2>Medidas de Diagnóstico</h2>
+<p>O coeficiente de determinação generalizado proposto em , é uma medida global de qualidade do ajuste é dado por <span class="math display">\[\begin{align*}
+R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\bm{\theta}}) -\ell(\widehat{\bm{\theta}}_0) \right] \right],
+\end{align*}\]</span> em que <span class="math inline">\(\ell(\widehat{\bm{\theta}}_0)\)</span> é a log-verossimilhança maximizada do modelo sem regressores (nulo) e a <span class="math inline">\(\ell(\widehat{\bm{\theta}})\)</span> é a log-verossimilhança maximizada do modelo ajustado.</p>
 </section>
 <section>
-<section id="objetivo" class="title-slide slide level1 center" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.2">
-<h1>Objetivo</h1>
+<section id="o-pacote" class="title-slide slide level1 center">
+<h1>O Pacote</h1>
+<p><img data-src="imgs/Rep1.png" class="absolute" style="top: 150px; right: 100px; width: 180px; height: 950px; "></p>
+</section>
+<section id="estrutura-básica" class="slide level2">
+<h2>Estrutura Básica</h2>
 <ul>
-<li>Implementar Computacionalmente o Modelo em R</li>
+<li><p>Unidade Básica de código compartilhavel</p></li>
+<li><p>Simplificação</p></li>
 </ul>
 </section>
-<section id="implementação" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
-<h2>Implementação</h2>
-<p>Modelos “tradicionais” em R:</p>
-<div>
+<section id="funções-básicas" class="slide level2">
+<h2>Funções básicas</h2>
 <ul>
-<li class="fragment"><code>y ~ x1 + x2 + x3 + x8</code></li>
+<li><code>chen_reg</code></li>
+<li><code>rchen</code></li>
+<li><code>auto_chen</code></li>
+<li><code>best_chen</code></li>
 </ul>
-<p><br></p>
-<ul>
-<li class="fragment"><p><code>Species ~ Sepal.Length + Petal.Length</code></p></li>
-<li class="fragment"><p><code>dependente ~ .</code></p></li>
-</ul>
-<p><br></p>
-<ul>
-<li class="fragment">“Qualquer” estrutura de média e covariância</li>
-</ul>
-</div>
 </section>
-<section id="implementação-1" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
-<h2>Implementação</h2>
-<div>
-<ul>
-<li class="fragment"><code>mu_formula</code> a model formula including variables and parameters
-<ul>
-<li class="fragment"><code>y ~ beta0 + beta1 * X1</code></li>
-<li class="fragment"><code>z ~ w1 + w7 * price</code></li>
-</ul></li>
-<li class="fragment">Mas quem são os parâmetros?</li>
-</ul>
-</div>
+<section id="rchen-e-chen_reg" class="slide level2">
+<h2><code>rchen</code> e <code>chen_reg</code></h2>
 </section>
-<section id="section" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
+<section id="auto_chen-e-best_chen" class="slide level2">
+<h2><code>auto_chen</code> e <code>best_chen</code></h2>
+</section>
+<section id="principais-métodos-genéricos" class="slide level2">
+<h2>Principais Métodos Genéricos</h2>
+<ul>
+<li>summary</li>
+<li>plot</li>
+<li>residuals</li>
+<li>predict</li>
+</ul>
+</section>
+<section id="interface-web-shiny" class="slide level2">
+<h2>Interface Web (Shiny)</h2>
+</section>
+<section id="section" class="slide level2" data-background-iframe="https://alissonrp.shinyapps.io/full_app/?_ga=2.83236885.2012925531.1652155237-1564274603.1652155237" data-background-interactive="true">
 <h2></h2>
-<ul>
-<li><code>var_formula</code> a model formula for the diagonal of covariance matrix
-<ul>
-<li><code>~ sig1 + sig2 * X2</code></li>
-<li><code>~ w1 + sig1 * price</code></li>
-</ul></li>
-<li><code>data</code> A data frame in which to evaluate the variables in <code>mu_formula</code> and <code>var_formula</code>.</li>
-<li><code>dist</code> Inform the distribution of your data</li>
-</ul>
-</section>
-<section id="section-1" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
-<h2></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(generalreg)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>X <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">rnorm</span>(<span class="dv">50</span>), <span class="at">x2 =</span> <span class="fu">rnorm</span>(<span class="dv">50</span>))</span>
-<span id="cb1-3"><a href="#cb1-3"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> X<span class="sc">$</span>x1 <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> X<span class="sc">$</span>x2</span>
-<span id="cb1-4"><a href="#cb1-4"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(y, X)</span>
-<span id="cb1-5"><a href="#cb1-5"></a>fit <span class="ot">&lt;-</span> <span class="fu">generalreg</span>(data, <span class="at">mu_formula =</span> y <span class="sc">~</span> beta0 <span class="sc">+</span> beta1 <span class="sc">*</span> x1 <span class="sc">+</span> beta2 <span class="sc">*</span> x2, <span class="at">dist=</span><span class="st">'normal'</span>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a>fit</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + beta2 * 
-    x2, dist = "normal")
-
-
-Coefficients:
-beta0 beta1 beta2 sigma 
-    2     3     2     1 </code></pre>
-</div>
-</div>
-</section>
-<section id="section-2" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
-<h2></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>fit <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-generalreg(data = data, mu_formula = y ~ beta0 + beta1 * x1 + 
-    beta2 * x2, dist = "normal")
-
-Residuals:
-          Min            1Q        Median            3Q           Max 
--3.472401e-09 -3.176591e-09 -2.646479e-09 -2.328028e-09 -1.687745e-09 
-
-Coefficients:
-      Estimate Std_Error P_Value
-beta0        2    No Sei  No Sei
-beta1        3    No Sei  No Sei
-beta2        2    No Sei  No Sei
-sigma        1    No Sei  No Sei
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
-</div>
-</div>
-</section>
-<section id="próximos-passos" class="slide level2" data-background-image="https://media.licdn.com/dms/image/D5612AQGIo_Wi-D3lmA/article-cover_image-shrink_720_1280/0/1660017898740?e=2147483647&amp;v=beta&amp;t=wM2JnLCd_rkk9rFn38oTo2uIj6NVYT4Rf0sDWSI2d6A" data-background-opacity="0.07">
-<h2>Próximos Passos</h2>
-<div>
-<ul>
-<li class="fragment"><p>Ajustar a implementação da estrutura de covariância</p></li>
-<li class="fragment"><p>Reestruturar todas as funções do <code>stats</code> para funcionar na classe <code>generalreg</code></p></li>
-<li class="fragment"><p>Implementar modelos mais específicos</p></li>
-<li class="fragment"><p>Escrever o artigo</p></li>
-<li class="fragment"><p>Entrar em mais uma luta com o <em>CRAN</em></p></li>
-</ul>
-</div>
 </section></section>
-<section id="obrigado-pela-atenção" class="title-slide slide level1 center" data-background-image="imgs/ufsm.png" data-background-opacity="0.02">
-<h1>Obrigado pela Atenção!</h1>
+<section>
+<section id="aplicação" class="title-slide slide level1 center">
+<h1>Aplicação</h1>
 
 </section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<ul>
+<li>Os dados utilizados neste estudo são provenientes do Instituto Brasileiro de Geografia e Estatística (IBGE)</li>
+<li>desenvolver um modelo de regressão quantílico Chen para prever quantis do PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019</li>
+</ul>
+</section>
+<section id="aplicação-1" class="slide level2">
+<h2>Aplicação</h2>
+<ul>
+<li>Consideramos como variável resposta o PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019 que chamaremos de PIB referencial, que é dado por</li>
+</ul>
+<p><span class="math display">\[
+Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
+\]</span></p>
+</section>
+<section id="aplicação-2" class="slide level2">
+<h2>Aplicação</h2>
+<ul>
+<li>IDHe: Índice de desenvolvimento humano educacional no ano de 2017 (<span class="math inline">\(x_1\)</span>);</li>
+<li>Área: Área do estado considerado em 2019 (<span class="math inline">\(x_2\)</span>);</li>
+<li>Densidade demográfica: Densidade demográfica do estado considerado 2019 (<span class="math inline">\(x_3\)</span>);</li>
+<li>Pobreza: Índice de pobreza do estado em questão em 2019 (<span class="math inline">\(x_4\)</span>).</li>
+</ul>
+</section>
+<section id="densidade" class="slide level2">
+<h2>Densidade</h2>
+</section>
+<section id="resumo-do-ajuste" class="slide level2">
+<h2>Resumo do Ajuste</h2>
+</section>
+<section id="gráficos" class="slide level2">
+<h2>Gráficos</h2>
+</section></section>
+<section>
+<section id="considerações-finais" class="title-slide slide level1 center">
+<h1>Considerações finais</h1>
 
-<section id="bibliografia" class="title-slide slide level1 smaller scrollable">
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+</section></section>
+<section id="bibliografia" class="title-slide slide level1 center">
 <h1>Bibliografia</h1>
 
 <img src="imgs/ufsm.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
-</div>
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-fang" class="csl-entry" role="doc-biblioentry">
-Fang, Kai Wang. 1990. <em>Symmetric multivariate and related distributions</em>. Chapman; Hall/CRC.
-</div>
-<div id="ref-lemonte2011multivariate" class="csl-entry" role="doc-biblioentry">
-Lemonte, Artur J, e Alexandre G Patriota. 2011. <span>«Multivariate elliptical models with general parameterization»</span>. <em>Statistical methodology</em> 8 (4): 389–400.
-</div>
-<div id="ref-loose2019condiccoes" class="csl-entry" role="doc-biblioentry">
-Loose, Laı́s Helen. 2019. <span>«Condi<span>ç</span><span>õ</span>es de regularidade para o modelo de regress<span>ã</span>o com parametriza<span>ç</span><span>ã</span>o geral»</span>. Tese de doutorado, Universidade de S<span>ã</span>o Paulo.
-</div>
-<div id="ref-melo2018improved" class="csl-entry" role="doc-biblioentry">
-Melo, Tatiane FN, Silvia LP Ferrari, e Alexandre G Patriota. 2018. <span>«Improved estimation in a general multivariate elliptical model»</span>. <em>Brazilian Journal of Probability and Statistics</em> 32 (1): 44–68.
-</div>
-<div id="ref-perette2019implementaccao" class="csl-entry" role="doc-biblioentry">
-Perette, André Casagrandi. 2019. <span>«Implementa<span>ç</span><span>ã</span>o no software estat<span>ı́</span>stico R de modelos de regress<span>ã</span>o normal com parametriza<span>ç</span><span>ã</span>o geral»</span>. Tese de doutorado, Universidade de S<span>ã</span>o Paulo.
-</div>
-<div id="ref-therneau2013r" class="csl-entry" role="doc-biblioentry">
-Therneau, Terry, e T Lumley. 2013. <span>«R survival package»</span>. <em>R Core Team</em>.
-</div>
-<div id="ref-wickham2019advanced" class="csl-entry" role="doc-biblioentry">
-Wickham, Hadley. 2019. <em>Advanced r</em>. CRC press.
-</div>
 </div>
 </section>
     </div>
@@ -875,48 +719,6 @@ Wickham, Hadley. 2019. <em>Advanced r</em>. CRC press.
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
