@@ -82,6 +82,16 @@ $\delta , \lambda > 0$ são os parâmetros de forma
 
 ## Modelo de Regressão 
 
+
+Para $\tau$ fixo e pertencente ao intervalo $(0,1)$, consideraremos $\mu=\mu_{\tau}$ o $\tau$-ésimo quantil, seja $Y_1, \ldots, Y_n$ variáveis aleatórias independentes, em que cada $Y_t$, com $t=1, \ldots, n$
+
+\begin{align}\label{modelo}
+g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}= \eta_t, \quad t=1, \ldots, n,
+\end{align}
+
+
+## Modelo de Regressão 
+
 CITAÇÃO 1 - GAJALARDO  
 
 CITAÇÃO 2 - GUERRA RAMIREZ  
