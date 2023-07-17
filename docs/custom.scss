@@ -1,11 +1,15 @@
 /*-- scss:defaults --*/
 
 
-
+$presentation-font-size-root: 36px;  /*Tamanho da fonte em geral*/
+$presentation-font-smaller: 0.95; /*Tamanho da fonte interna*/
 
 $body-bg: #F2F9F9;
 $body-color: #222;
 $link-color: #8aabf1;
 $presentation-heading-color: $body-color;
 
-/*-- scss:rules --*/
+
+
+
+

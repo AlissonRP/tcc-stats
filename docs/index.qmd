@@ -3,8 +3,9 @@ title: "Implementação Computacional"
 subtitle: "Do Modelo de Regressão Chen"
 author: "<br> Alisson Rosa <br> <br> Orientadora: Prof. Laís Helen Loose"
 title-slide-attributes:
-  data-background-image: "https://img.freepik.com/vector-premium/fondo-abstracto-puntos-lineas-que-cruzan-colores-azul-claro_444390-6877.jpg?w=2000"
-  data-background-opacity: "0.04"
+  data-background-image: "https://i.pinimg.com/736x/ed/d5/83/edd5835ef8d4fabf0818b17609bd24b9.jpg"
+  data-background-size: cover
+  data-background-opacity: "0.06"
 format: 
     revealjs:
         theme: [serif, custom.scss]
@@ -12,6 +13,8 @@ format:
         chalkboard: true
         transition: fade
         controls: true
+        width: 1100
+        height: 720
         logo: "imgs/ufsm.png"
         smaller: false
         bibliography: bib.bib
@@ -24,12 +27,13 @@ lang: pt
 
 ::: {.incremental}
 - Revisão Teórica
-
-<br />
+  - Distribuição Chen
+  - Reparametrização
+  - O modelo 
 
 - Implementações Computacional
-
-<br />
+  - Pacote
+  - Interface Web 
 
 - Aplicações
 
@@ -55,7 +59,8 @@ Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)
 \end{align}
 
 
-em que $y>0$    
+em que $y>0$    e
+
 $\delta , \lambda > 0$ são os parâmetros de forma 
 
 
@@ -112,7 +117,7 @@ Seja $\theta_r, r= 1,2,\ldots,k + 2$, o $r$-ésimo componente do vetor de parâm
 
 
 
-em que $z_{1-\alpha/2}$ é o quantil da distribuição normal padrão, tal que $P(Z<z_{1-\alpha/2})=1-\alpha/2$, com $Z$ variável aleatória com distribuição normal padrão  e $\text{se}(\widehat{\theta}_r)$ é o erro padrão assintótico de $\widehat{\theta}_r$
+em que $z_{1-\alpha/2}$ é o quantil da distribuição normal padrão e $\text{se}(\widehat{\theta}_r)$ é o erro padrão assintótico de $\widehat{\theta}_r$
 
 
 ## Inferência - Teste de Hipótese
@@ -122,43 +127,47 @@ Agora, consideremos o interesse em testar as hipóteses
 \begin{align*}
    H_0: \theta_r = \theta_r^0 \quad  versus \quad H_1: \theta_r \neq \theta_r^0,
 \end{align*}
-em que $\theta_r^0$ representa um valor específico para o parâmetro desconhecido $\theta_r$. Uma estatística comumente utilizada para testar essas hipóteses é a raiz quadrada da estatística de Wald, definida por
+em que $\theta_r^0$ representa um valor específico para o parâmetro desconhecido $\theta_r$. Raiz quadrada da estatística de Wald, definida por
 \begin{align*}
 z=\frac{\widehat{\theta}_r - \theta_r^0}{\mbox{se}( \widehat{\theta}_r )}.
 \end{align*}
- Sob $H_0$ e para $n$ grande, $z$ tem uma distribuição normal padrão. A hipótese nula é rejeitada para valores de $|z|$ maiores que o quantil $z_{1-\alpha/2}$
+ Sob $H_0$ e para $n$ grande, $z$ tem uma distribuição normal padrão.
 
 
 ## Medidas de Diagnóstico
 
-Para avaliar a adequação do ajuste do modelo em dados reais consideramos o resíduo quantílico, que  é definido como \citep{dunn1996}
+Para avaliar a adequação do ajuste do modelo consideramos o resíduo quantílico, que  é definido como \citep{dunn1996}
 \begin{align*}
  r_t= \Phi^{-1}\left\lbrace F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\right\rbrace,
   \end{align*}
-em que $\Phi(\cdot)$  é a função de distribuição acumulada da normal padrão e $F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )$ é a função de distribuição acumulada dada em \eqref{acumulada}. Se os parâmetros do modelo são estimados consistentemente, $r_t$  converge para uma distribuição normal padrão,  independente da distribuição da variável resposta.
+em que $\Phi(\cdot)$  é a função de distribuição acumulada da normal padrão e $F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )$ é a função de distribuição acumulada dada em \eqref{acumulada}. Se os parâmetros do modelo são estimados consistentemente, $r_t$  converge para uma distribuição normal padrão.
 
 
 ## Medidas de Diagnóstico
 
-O coeficiente de determinação generalizado proposto em \cite{Nagelkerke1991}, é uma medida global de qualidade do ajuste é dado por 
+O coeficiente de determinação generalizado proposto em \cite{Nagelkerke1991} é  dado por 
 \vspace*{-0.3cm}
 \begin{align*}
-R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\bm{\theta}}) -\ell(\widehat{\bm{\theta}}_0) \right] \right],
+R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\mathbf{\theta}}) -\ell(\widehat{\mathbf{\theta}}_0) \right] \right],
 \end{align*}
-em que $\ell(\widehat{\bm{\theta}}_0)$ é a log-verossimilhança maximizada do modelo sem regressores (nulo) e a $\ell(\widehat{\bm{\theta}})$  é a log-verossimilhança maximizada do modelo ajustado. 
+em que $\ell(\widehat{\mathbf{\theta}}_0)$ é a log-verossimilhança maximizada do modelo sem regressores (nulo) e a $\ell(\widehat{\mathbf{\theta}})$  é a log-verossimilhança maximizada do modelo ajustado. 
 
 
-# O Pacote
+# O Pacote {background-image="https://htmlcolorcodes.com/assets/images/colors/sky-blue-color-solid-background-1920x1080.png" background-opacity=0.08}
 
 
 
-![](imgs/Rep1.png){.absolute top=150 right=100 width="180" height="950"}
+![](imgs/Rep1.png){.absolute top=130 right=310 width="100" height="150"}
 
-## Estrutura Básica
+## Estrutura Básica {background-image="https://htmlcolorcodes.com/assets/images/colors/pastel-purple-color-solid-background-1920x1080.png" background-opacity=0.11}
+
+![](imgs/Rep1.png){.absolute top=150 right=30 width="200" height="250"}
 
 * Unidade Básica de código compartilhavel
 
 * Simplificação
+
+* etc e tal
 
 ## Funções básicas
 
@@ -172,17 +181,83 @@ em que $\ell(\widehat{\bm{\theta}}_0)$ é a log-verossimilhança maximizada do m
 ##  `rchen` e `chen_reg`
 
 
+```{.r code-line-numbers="6-8"}
+
+
+set.seed(3)
+n <- 500
+lambda <- 1
+beta <- c(2, 0.5, -2, 1)
+X <- cbind(rep(1, length(n)),runif(n), runif(n), runif(n))
+eta <- X %*% as.matrix(beta)
+quantile <- exp(eta)
+y <- chenreg::rchen(n, quantile, lambda, tau = 0.7)
+
+
+data <- data.frame(X[, -1], y) # we don't need columns of 1
+model <- chenreg::chen_reg(data, y ~ X1 + X2 + X3, tau = 0.7)
+```
+
+
+##  `rchen` e `chen_reg`
+
+```{.r code-line-numbers="6-8"}
+model
+
+
+class(model)
+
+```
+
+## Classes, Funções e Métodos
+
+* Explicar o que é uma classe
+* Falar sobre objetos
+* Falar sobre objetos que são orientados a objetos
+* Explicar sobre as classes e reutilizaão de código
+
+##  `chenreg` e os métodos genéricos
+
+* citar alguns métods
+
+```{.r code-line-numbers="6-8"}
+model |> summary()
+
+
+```
+
 
 ##  `auto_chen` e `best_chen`
 
-## Principais Métodos Genéricos
 
-* summary
-* plot
-* residuals
-* predict
+```{.r code-line-numbers="6-8"}
+
+set.seed(3)
+
+auto_model = auto_chen("y", data, tau = 0.7, total = 5)
 
 
+```
+
+
+
+
+
+
+
+##  `auto_chen` e `best_chen`
+
+
+```{.r code-line-numbers="6-8"}
+
+set.seed(3)
+
+best_model = best_chen(auto_model)
+
+best_model
+
+
+```
 
 
 
@@ -190,6 +265,8 @@ em que $\ell(\widehat{\bm{\theta}}_0)$ é a log-verossimilhança maximizada do m
 
 
 ## Interface Web (Shiny)
+
+* motivacional e tal
 
 ## {background-iframe="https://alissonrp.shinyapps.io/full_app/?_ga=2.83236885.2012925531.1652155237-1564274603.1652155237" background-interactive="true"}
 
@@ -211,6 +288,9 @@ $$
 ## Aplicação
 
 
+
+
+
 * IDHe: Índice de desenvolvimento humano educacional no ano de 2017 ($x_1$);
 * Área: Área do estado considerado  em 2019 ($x_2$);
 * Densidade demográfica: Densidade demográfica do estado considerado 2019 ($x_3$);
@@ -220,15 +300,62 @@ $$
 ## Densidade
 
 
-## Resumo do Ajuste
+
+## Resumo do Ajuste - suprimir output deixar só o código
+```.r
+model <- chenreg::chen_reg(PIB ~ ., data = df, quantile = 0.4)
+
+model |>
+  summary(format = TRUE)   |> 
+  dplyr::rename("Estimativa" = Estimate, 
+                "Erro padrão" = Std_Error, 
+                "Valor Z" = Z_value,
+                "P Valor" = P_Value) |>
+  fastrep::tbl("Resultados do ajuste do modelo de regressão Chen para o PIB Referencial", 
+    tabs = T, code = T, format = "latex")
+
+
+```
+
+
+
+## Resumo do Ajuste - Suprimir código deixar só output
+```.r
+model <- chenreg::chen_reg(PIB ~ ., data = df, quantile = 0.4)
+
+model |>
+  summary(format = TRUE)   |> 
+  dplyr::rename("Estimativa" = Estimate, 
+                "Erro padrão" = Std_Error, 
+                "Valor Z" = Z_value,
+                "P Valor" = P_Value) |>
+  fastrep::tbl("Resultados do ajuste do modelo de regressão Chen para o PIB Referencial", 
+    tabs = T, code = T, format = "latex")
+
+
+```
 
 
 ## Gráficos
+
+```.r
+
+plot(model)
+
+```
 
 
 
 # Considerações finais
 
-## 
+
+##
+
+* Aperfeiçoamento da interface \textit{web}
+
+* Extensão do modelo para dados com dependência temporal
+
+
+* Expansão das aplicacões práticas.  
 
 # Bibliografia

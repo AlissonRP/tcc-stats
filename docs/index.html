@@ -17,6 +17,69 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -321,7 +384,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="https://img.freepik.com/vector-premium/fondo-abstracto-puntos-lineas-que-cruzan-colores-azul-claro_444390-6877.jpg?w=2000" data-background-opacity="0.04" class="center">
+<section id="title-slide" data-background-image="https://i.pinimg.com/736x/ed/d5/83/edd5835ef8d4fabf0818b17609bd24b9.jpg" data-background-opacity="0.06" data-background-size="cover" class="center">
   <h1 class="title">Implementação Computacional</h1>
   <p class="subtitle">Do Modelo de Regressão Chen</p>
   <p class="author"><br> Alisson Rosa <br> <br> Orientadora: Prof.&nbsp;Laís Helen Loose</p>
@@ -331,14 +394,17 @@
 <h2>Introdução</h2>
 <div>
 <ul>
-<li class="fragment">Revisão Teórica</li>
-</ul>
-<p><br></p>
+<li class="fragment">Revisão Teórica
 <ul>
-<li class="fragment">Implementações Computacional</li>
-</ul>
-<p><br></p>
+<li class="fragment">Distribuição Chen</li>
+<li class="fragment">Reparametrização</li>
+<li class="fragment">O modelo</li>
+</ul></li>
+<li class="fragment">Implementações Computacional
 <ul>
+<li class="fragment">Pacote</li>
+<li class="fragment">Interface Web</li>
+</ul></li>
 <li class="fragment">Aplicações</li>
 </ul>
 </div>
@@ -354,8 +420,8 @@ F(y; \lambda,\delta)= 1 - \exp \left\lbrace   \delta \left[ 1-\exp(y^{\lambda}) 
 \label{quant}
 Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)}{\delta}\right) \right] \right\rbrace  ^{\frac{1}{\lambda}}, \quad 0&lt;\tau&lt;1.
 \end{align}\]</span></p>
-<p>em que <span class="math inline">\(y&gt;0\)</span><br>
-<span class="math inline">\(\delta , \lambda &gt; 0\)</span> são os parâmetros de forma</p>
+<p>em que <span class="math inline">\(y&gt;0\)</span> e</p>
+<p><span class="math inline">\(\delta , \lambda &gt; 0\)</span> são os parâmetros de forma</p>
 </section>
 <section id="distribuição-chen-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuição Chen</h2>
@@ -388,38 +454,40 @@ Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)
 <p>Seja <span class="math inline">\(\theta_r, r= 1,2,\ldots,k + 2\)</span>, o <span class="math inline">\(r\)</span>-ésimo componente do vetor de parâmetros <span class="math inline">\(\mathbf{\theta}\)</span>. O intervalo de confiança assintótico de <span class="math inline">\(100 (1- \alpha)\%\)</span> para <span class="math inline">\(\theta_r\)</span> é dado por <span class="math display">\[\begin{align*}
 \left[ \widehat{\theta}_r \pm z_{1-\alpha /2} \mbox{se}( \widehat{\theta}_r )\right] , \quad r=1,\ldots, k + 2,
 \end{align*}\]</span></p>
-<p>em que <span class="math inline">\(z_{1-\alpha/2}\)</span> é o quantil da distribuição normal padrão, tal que <span class="math inline">\(P(Z&lt;z_{1-\alpha/2})=1-\alpha/2\)</span>, com <span class="math inline">\(Z\)</span> variável aleatória com distribuição normal padrão e <span class="math inline">\(\text{se}(\widehat{\theta}_r)\)</span> é o erro padrão assintótico de <span class="math inline">\(\widehat{\theta}_r\)</span></p>
+<p>em que <span class="math inline">\(z_{1-\alpha/2}\)</span> é o quantil da distribuição normal padrão e <span class="math inline">\(\text{se}(\widehat{\theta}_r)\)</span> é o erro padrão assintótico de <span class="math inline">\(\widehat{\theta}_r\)</span></p>
 </section>
 <section id="inferência---teste-de-hipótese" class="slide level2">
 <h2>Inferência - Teste de Hipótese</h2>
 <p>Agora, consideremos o interesse em testar as hipóteses <span class="math display">\[\begin{align*}
    H_0: \theta_r = \theta_r^0 \quad  versus \quad H_1: \theta_r \neq \theta_r^0,
-\end{align*}\]</span> em que <span class="math inline">\(\theta_r^0\)</span> representa um valor específico para o parâmetro desconhecido <span class="math inline">\(\theta_r\)</span>. Uma estatística comumente utilizada para testar essas hipóteses é a raiz quadrada da estatística de Wald, definida por <span class="math display">\[\begin{align*}
+\end{align*}\]</span> em que <span class="math inline">\(\theta_r^0\)</span> representa um valor específico para o parâmetro desconhecido <span class="math inline">\(\theta_r\)</span>. Raiz quadrada da estatística de Wald, definida por <span class="math display">\[\begin{align*}
 z=\frac{\widehat{\theta}_r - \theta_r^0}{\mbox{se}( \widehat{\theta}_r )}.
-\end{align*}\]</span> Sob <span class="math inline">\(H_0\)</span> e para <span class="math inline">\(n\)</span> grande, <span class="math inline">\(z\)</span> tem uma distribuição normal padrão. A hipótese nula é rejeitada para valores de <span class="math inline">\(|z|\)</span> maiores que o quantil <span class="math inline">\(z_{1-\alpha/2}\)</span></p>
+\end{align*}\]</span> Sob <span class="math inline">\(H_0\)</span> e para <span class="math inline">\(n\)</span> grande, <span class="math inline">\(z\)</span> tem uma distribuição normal padrão.</p>
 </section>
 <section id="medidas-de-diagnóstico" class="slide level2">
 <h2>Medidas de Diagnóstico</h2>
-<p>Para avaliar a adequação do ajuste do modelo em dados reais consideramos o resíduo quantílico, que é definido como <span class="math display">\[\begin{align*}
+<p>Para avaliar a adequação do ajuste do modelo consideramos o resíduo quantílico, que é definido como <span class="math display">\[\begin{align*}
 r_t= \Phi^{-1}\left\lbrace F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\right\rbrace,
-  \end{align*}\]</span> em que <span class="math inline">\(\Phi(\cdot)\)</span> é a função de distribuição acumulada da normal padrão e <span class="math inline">\(F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\)</span> é a função de distribuição acumulada dada em <span class="math inline">\(\eqref{acumulada}\)</span>. Se os parâmetros do modelo são estimados consistentemente, <span class="math inline">\(r_t\)</span> converge para uma distribuição normal padrão, independente da distribuição da variável resposta.</p>
+  \end{align*}\]</span> em que <span class="math inline">\(\Phi(\cdot)\)</span> é a função de distribuição acumulada da normal padrão e <span class="math inline">\(F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\)</span> é a função de distribuição acumulada dada em <span class="math inline">\(\eqref{acumulada}\)</span>. Se os parâmetros do modelo são estimados consistentemente, <span class="math inline">\(r_t\)</span> converge para uma distribuição normal padrão.</p>
 </section>
 <section id="medidas-de-diagnóstico-1" class="slide level2">
 <h2>Medidas de Diagnóstico</h2>
-<p>O coeficiente de determinação generalizado proposto em , é uma medida global de qualidade do ajuste é dado por <span class="math display">\[\begin{align*}
-R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\bm{\theta}}) -\ell(\widehat{\bm{\theta}}_0) \right] \right],
-\end{align*}\]</span> em que <span class="math inline">\(\ell(\widehat{\bm{\theta}}_0)\)</span> é a log-verossimilhança maximizada do modelo sem regressores (nulo) e a <span class="math inline">\(\ell(\widehat{\bm{\theta}})\)</span> é a log-verossimilhança maximizada do modelo ajustado.</p>
+<p>O coeficiente de determinação generalizado proposto em é dado por <span class="math display">\[\begin{align*}
+R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\mathbf{\theta}}) -\ell(\widehat{\mathbf{\theta}}_0) \right] \right],
+\end{align*}\]</span> em que <span class="math inline">\(\ell(\widehat{\mathbf{\theta}}_0)\)</span> é a log-verossimilhança maximizada do modelo sem regressores (nulo) e a <span class="math inline">\(\ell(\widehat{\mathbf{\theta}})\)</span> é a log-verossimilhança maximizada do modelo ajustado.</p>
 </section>
 <section>
-<section id="o-pacote" class="title-slide slide level1 center">
+<section id="o-pacote" class="title-slide slide level1 center" data-background-image="https://htmlcolorcodes.com/assets/images/colors/sky-blue-color-solid-background-1920x1080.png" data-background-opacity="0.08">
 <h1>O Pacote</h1>
-<p><img data-src="imgs/Rep1.png" class="absolute" style="top: 150px; right: 100px; width: 180px; height: 950px; "></p>
+<p><img data-src="imgs/Rep1.png" class="absolute" style="top: 130px; right: 310px; width: 100px; height: 150px; "></p>
 </section>
-<section id="estrutura-básica" class="slide level2">
+<section id="estrutura-básica" class="slide level2" data-background-image="https://htmlcolorcodes.com/assets/images/colors/pastel-purple-color-solid-background-1920x1080.png" data-background-opacity="0.11">
 <h2>Estrutura Básica</h2>
+<p><img data-src="imgs/Rep1.png" class="absolute" style="top: 150px; right: 30px; width: 200px; height: 250px; "></p>
 <ul>
 <li><p>Unidade Básica de código compartilhavel</p></li>
 <li><p>Simplificação</p></li>
+<li><p>etc e tal</p></li>
 </ul>
 </section>
 <section id="funções-básicas" class="slide level2">
@@ -433,21 +501,68 @@ R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\bm{\theta}}) -\ell(\wide
 </section>
 <section id="rchen-e-chen_reg" class="slide level2">
 <h2><code>rchen</code> e <code>chen_reg</code></h2>
+<div class="sourceCode" id="cb1" data-code-line-numbers="6-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>lambda <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">0.5</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(n)),<span class="fu">runif</span>(n), <span class="fu">runif</span>(n), <span class="fu">runif</span>(n))</span>
+<span id="cb1-8"><a href="#cb1-8"></a>eta <span class="ot">&lt;-</span> X <span class="sc">%*%</span> <span class="fu">as.matrix</span>(beta)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>quantile <span class="ot">&lt;-</span> <span class="fu">exp</span>(eta)</span>
+<span id="cb1-10"><a href="#cb1-10"></a>y <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">rchen</span>(n, quantile, lambda, <span class="at">tau =</span> <span class="fl">0.7</span>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X[, <span class="sc">-</span><span class="dv">1</span>], y) <span class="co"># we don't need columns of 1</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>model <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">chen_reg</span>(data, y <span class="sc">~</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3, <span class="at">tau =</span> <span class="fl">0.7</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="rchen-e-chen_reg-1" class="slide level2">
+<h2><code>rchen</code> e <code>chen_reg</code></h2>
+<div class="sourceCode" id="cb2" data-code-line-numbers="6-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>model</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">class</span>(model)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="classes-funções-e-métodos" class="slide level2">
+<h2>Classes, Funções e Métodos</h2>
+<ul>
+<li>Explicar o que é uma classe</li>
+<li>Falar sobre objetos</li>
+<li>Falar sobre objetos que são orientados a objetos</li>
+<li>Explicar sobre as classes e reutilizaão de código</li>
+</ul>
+</section>
+<section id="chenreg-e-os-métodos-genéricos" class="slide level2">
+<h2><code>chenreg</code> e os métodos genéricos</h2>
+<ul>
+<li>citar alguns métods</li>
+</ul>
+<div class="sourceCode" id="cb3" data-code-line-numbers="6-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>model <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="auto_chen-e-best_chen" class="slide level2">
 <h2><code>auto_chen</code> e <code>best_chen</code></h2>
+<div class="sourceCode" id="cb4" data-code-line-numbers="6-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a>auto_model <span class="ot">=</span> <span class="fu">auto_chen</span>(<span class="st">"y"</span>, data, <span class="at">tau =</span> <span class="fl">0.7</span>, <span class="at">total =</span> <span class="dv">5</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="principais-métodos-genéricos" class="slide level2">
-<h2>Principais Métodos Genéricos</h2>
-<ul>
-<li>summary</li>
-<li>plot</li>
-<li>residuals</li>
-<li>predict</li>
-</ul>
+<section id="auto_chen-e-best_chen-1" class="slide level2">
+<h2><code>auto_chen</code> e <code>best_chen</code></h2>
+<div class="sourceCode" id="cb5" data-code-line-numbers="6-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>best_model <span class="ot">=</span> <span class="fu">best_chen</span>(auto_model)</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a>best_model</span>
+<span id="cb5-7"><a href="#cb5-7"></a></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="interface-web-shiny" class="slide level2">
 <h2>Interface Web (Shiny)</h2>
+<ul>
+<li>motivacional e tal</li>
+</ul>
 </section>
 <section id="section" class="slide level2" data-background-iframe="https://alissonrp.shinyapps.io/full_app/?_ga=2.83236885.2012925531.1652155237-1564274603.1652155237" data-background-interactive="true">
 <h2></h2>
@@ -485,11 +600,38 @@ Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
 <section id="densidade" class="slide level2">
 <h2>Densidade</h2>
 </section>
-<section id="resumo-do-ajuste" class="slide level2">
-<h2>Resumo do Ajuste</h2>
+<section id="resumo-do-ajuste---suprimir-output-deixar-só-o-código" class="slide level2">
+<h2>Resumo do Ajuste - suprimir output deixar só o código</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource .r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>model <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">chen_reg</span>(PIB <span class="sc">~</span> ., <span class="at">data =</span> df, <span class="at">quantile =</span> <span class="fl">0.4</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a></span>
+<span id="cb6-3"><a href="#cb6-3"></a>model <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">summary</span>(<span class="at">format =</span> <span class="cn">TRUE</span>)   <span class="sc">|&gt;</span> </span>
+<span id="cb6-5"><a href="#cb6-5"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">"Estimativa"</span> <span class="ot">=</span> Estimate, </span>
+<span id="cb6-6"><a href="#cb6-6"></a>                <span class="st">"Erro padrão"</span> <span class="ot">=</span> Std_Error, </span>
+<span id="cb6-7"><a href="#cb6-7"></a>                <span class="st">"Valor Z"</span> <span class="ot">=</span> Z_value,</span>
+<span id="cb6-8"><a href="#cb6-8"></a>                <span class="st">"P Valor"</span> <span class="ot">=</span> P_Value) <span class="sc">|&gt;</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>  fastrep<span class="sc">::</span><span class="fu">tbl</span>(<span class="st">"Resultados do ajuste do modelo de regressão Chen para o PIB Referencial"</span>, </span>
+<span id="cb6-10"><a href="#cb6-10"></a>    <span class="at">tabs =</span> T, <span class="at">code =</span> T, <span class="at">format =</span> <span class="st">"latex"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11"></a></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="resumo-do-ajuste---suprimir-código-deixar-só-output" class="slide level2">
+<h2>Resumo do Ajuste - Suprimir código deixar só output</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource .r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>model <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">chen_reg</span>(PIB <span class="sc">~</span> ., <span class="at">data =</span> df, <span class="at">quantile =</span> <span class="fl">0.4</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>model <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">summary</span>(<span class="at">format =</span> <span class="cn">TRUE</span>)   <span class="sc">|&gt;</span> </span>
+<span id="cb7-5"><a href="#cb7-5"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">"Estimativa"</span> <span class="ot">=</span> Estimate, </span>
+<span id="cb7-6"><a href="#cb7-6"></a>                <span class="st">"Erro padrão"</span> <span class="ot">=</span> Std_Error, </span>
+<span id="cb7-7"><a href="#cb7-7"></a>                <span class="st">"Valor Z"</span> <span class="ot">=</span> Z_value,</span>
+<span id="cb7-8"><a href="#cb7-8"></a>                <span class="st">"P Valor"</span> <span class="ot">=</span> P_Value) <span class="sc">|&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>  fastrep<span class="sc">::</span><span class="fu">tbl</span>(<span class="st">"Resultados do ajuste do modelo de regressão Chen para o PIB Referencial"</span>, </span>
+<span id="cb7-10"><a href="#cb7-10"></a>    <span class="at">tabs =</span> T, <span class="at">code =</span> T, <span class="at">format =</span> <span class="st">"latex"</span>)</span>
+<span id="cb7-11"><a href="#cb7-11"></a></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="gráficos" class="slide level2">
 <h2>Gráficos</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource .r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">plot</span>(model)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="considerações-finais" class="title-slide slide level1 center">
@@ -498,6 +640,11 @@ Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
+<ul>
+<li><p>Aperfeiçoamento da interface </p></li>
+<li><p>Extensão do modelo para dados com dependência temporal</p></li>
+<li><p>Expansão das aplicacões práticas.</p></li>
+</ul>
 </section></section>
 <section id="bibliografia" class="title-slide slide level1 center">
 <h1>Bibliografia</h1>
@@ -685,9 +832,9 @@ Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1100,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
