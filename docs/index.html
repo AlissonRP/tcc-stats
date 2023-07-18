@@ -519,7 +519,7 @@ r_t= \Phi^{-1}\left\lbrace F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\ri
 </section>
 <section id="medidas-de-diagnóstico-1" class="slide level2">
 <h2>Medidas de Diagnóstico</h2>
-<p>O coeficiente de determinação generalizado proposto em é dado por <span class="math display">\[\begin{align*}
+<p>O coeficiente de determinação generalizado proposto em <span class="citation" data-cites="Nagelkerke1991">Nagelkerke et al. (<a href="#/ref-Nagelkerke1991" role="doc-biblioref" onclick="return false;">1991</a>)</span> é dado por <span class="math display">\[\begin{align*}
 R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\mathbf{\theta}}) -\ell(\widehat{\mathbf{\theta}}_0) \right] \right],
 \end{align*}\]</span> em que <span class="math inline">\(\ell(\widehat{\mathbf{\theta}}_0)\)</span> é a log-verossimilhança maximizada do modelo sem regressores (nulo) e a <span class="math inline">\(\ell(\widehat{\mathbf{\theta}})\)</span> é a log-verossimilhança maximizada do modelo ajustado.</p>
 </section>
@@ -563,7 +563,7 @@ R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\mathbf{\theta}}) -\ell(\
 <span id="cb1-3"><a href="#cb1-3"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a>lambda <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">0.5</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">1</span>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(n)),<span class="fu">runif</span>(n), <span class="fu">runif</span>(n), <span class="fu">runif</span>(n))</span>
+<span id="cb1-6"><a href="#cb1-6"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rep</span>(<span class="dv">1</span>, n),<span class="fu">runif</span>(n), <span class="fu">runif</span>(n), <span class="fu">runif</span>(n))</span>
 <span id="cb1-7"><a href="#cb1-7"></a>eta <span class="ot">&lt;-</span> X <span class="sc">%*%</span> <span class="fu">as.matrix</span>(beta)</span>
 <span id="cb1-8"><a href="#cb1-8"></a>quantile <span class="ot">&lt;-</span> <span class="fu">exp</span>(eta)</span>
 <span id="cb1-9"><a href="#cb1-9"></a>y <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">rchen</span>(n, quantile, lambda, <span class="at">tau =</span> <span class="fl">0.7</span>)</span>
@@ -936,6 +936,9 @@ Dunn P. K. Smyth, G. K. 1996. <span>«Randomized quantile residuals»</span>. <e
 </div>
 <div id="ref-gallardo2020parametric" class="csl-entry" role="doc-biblioentry">
 Gallardo, Diego I, Marcelo Bourguignon, Christian E Galarza, e Héctor W Gómez. 2020. <span>«A parametric quantile regression model for asymmetric response variables on the real line»</span>. <em>Symmetry</em> 12 (12): 1938.
+</div>
+<div id="ref-Nagelkerke1991" class="csl-entry" role="doc-biblioentry">
+Nagelkerke, Nico JD et al. 1991. <span>«A note on a general definition of the coefficient of determination»</span>. <em>Biometrika</em> 78 (3): 691–92.
 </div>
 <div id="ref-pawitan2001" class="csl-entry" role="doc-biblioentry">
 Pawitan, Yudi. 2001. <em>In all likelihood: statistical modelling and inference using likelihood</em>. Karolinska Institutet: Oxford University Press.

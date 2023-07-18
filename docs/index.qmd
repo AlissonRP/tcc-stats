@@ -192,7 +192,7 @@ Se os parâmetros do modelo são estimados consistentemente, $r_t$  converge par
 
 ## Medidas de Diagnóstico
 
-O coeficiente de determinação generalizado proposto em \cite{Nagelkerke1991} é  dado por 
+O coeficiente de determinação generalizado proposto em @Nagelkerke1991 é  dado por 
 \vspace*{-0.3cm}
 \begin{align*}
 R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\mathbf{\theta}}) -\ell(\widehat{\mathbf{\theta}}_0) \right] \right],
@@ -242,7 +242,7 @@ set.seed(3)
 n <- 500
 lambda <- 1
 beta <- c(2, 0.5, -2, 1)
-X <- cbind(rep(1, length(n)),runif(n), runif(n), runif(n))
+X <- cbind(rep(1, n),runif(n), runif(n), runif(n))
 eta <- X %*% as.matrix(beta)
 quantile <- exp(eta)
 y <- chenreg::rchen(n, quantile, lambda, tau = 0.7)
