@@ -81,7 +81,7 @@ F(y; \lambda,\delta)= 1 - \exp \left\lbrace   \delta \left[ 1-\exp(y^{\lambda}) 
 \end{align*}
 
 
-Por consequência a Função Quantilica fica dada por:
+Por consequência a função quantílica fica dada por:
 
 \begin{align}
 \label{quant}
@@ -93,7 +93,7 @@ em que $y>0$  e
 
 <br />
 
-$\delta , \lambda > 0$ são os parâmetros de forma 
+$\delta , \lambda > 0$ são os parâmetros de forma.
 
 
 
@@ -119,7 +119,7 @@ Para $\tau$ fixo e pertencente ao intervalo $(0,1)$, consideraremos $\mu=\mu_{\t
 
 <br />
 
-Seja $Y_1, \ldots, Y_n$ variáveis aleatórias independentes, em que cada $Y_t$, com $t=1, \ldots, n$
+Seja $Y_1, \ldots, Y_n$ variáveis aleatórias independentes, em que cada $Y_t$, com $t=1, \ldots, n$.
 
 \begin{align}\label{modelo}
 g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}, \quad t=1, \ldots, n,
@@ -147,7 +147,7 @@ $$
 <br />
 
 $$
-\ell_t(\mu_t,\lambda)=\log\prod_{i=1}^{n}\dfrac{dF(y; \lambda, \mu_{\tau}, \tau)}{dy}
+\ell_t(\mu_t,\lambda)=\log\prod_{i=1}^{n}\dfrac{dF(y; \lambda, \mu_{\tau}, \tau)}{dy}.
 $$
 
 
@@ -160,7 +160,7 @@ Seja $\theta_r, r= 1,2,\ldots,k + 2$, o $r$-ésimo componente do vetor de parâm
 
 
 
-em que $z_{1-\alpha/2}$ é o quantil da distribuição normal padrão e $\text{se}(\widehat{\theta}_r)$ é o erro padrão assintótico de $\widehat{\theta}_r$
+em que $z_{1-\alpha/2}$ é o quantil da distribuição normal padrão e $\text{se}(\widehat{\theta}_r)$ é o erro padrão assintótico de $\widehat{\theta}_r$.
 
 
 ## Inferência - Teste de Hipótese
@@ -384,9 +384,9 @@ $$
 
 
 
-* IDHe: Índice de desenvolvimento humano educacional no ano de 2017 ($x_1$);
-* Área: Área do estado considerado  em 2019 ($x_2$);
-* Densidade demográfica: Densidade demográfica do estado considerado 2019 ($x_3$);
+* IDHe: Índice de desenvolvimento humano educacional no ano de 2017 ($x_1$).
+* Área: Área do estado considerado  em 2019 ($x_2$).
+* Densidade demográfica: Densidade demográfica do estado considerado 2019 ($x_3$).
 * Pobreza: Índice de pobreza do estado em questão em 2019 ($x_4$).
 
 

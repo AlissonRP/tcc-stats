@@ -455,14 +455,14 @@
 F(y; \lambda,\delta)= 1 - \exp \left\lbrace   \delta \left[ 1-\exp(y^{\lambda}) \right] \right\rbrace
 
 \end{align*}\]</span></p>
-<p>Por consequência a Função Quantilica fica dada por:</p>
+<p>Por consequência a função quantílica fica dada por:</p>
 <p><span class="math display">\[\begin{align}
 \label{quant}
 Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)}{\delta}\right) \right] \right\rbrace  ^{\frac{1}{\lambda}}, \quad 0&lt;\tau&lt;1.
 \end{align}\]</span></p>
 <p>em que <span class="math inline">\(y&gt;0\)</span> e</p>
 <p><br></p>
-<p><span class="math inline">\(\delta , \lambda &gt; 0\)</span> são os parâmetros de forma</p>
+<p><span class="math inline">\(\delta , \lambda &gt; 0\)</span> são os parâmetros de forma.</p>
 </section>
 <section id="distribuição-chen-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuição Chen</h2>
@@ -478,7 +478,7 @@ Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)
 <h2>Modelo de Regressão</h2>
 <p>Para <span class="math inline">\(\tau\)</span> fixo e pertencente ao intervalo <span class="math inline">\((0,1)\)</span>, consideraremos <span class="math inline">\(\mu=\mu_{\tau}\)</span> o <span class="math inline">\(\tau\)</span>-ésimo quantil.</p>
 <p><br></p>
-<p>Seja <span class="math inline">\(Y_1, \ldots, Y_n\)</span> variáveis aleatórias independentes, em que cada <span class="math inline">\(Y_t\)</span>, com <span class="math inline">\(t=1, \ldots, n\)</span></p>
+<p>Seja <span class="math inline">\(Y_1, \ldots, Y_n\)</span> variáveis aleatórias independentes, em que cada <span class="math inline">\(Y_t\)</span>, com <span class="math inline">\(t=1, \ldots, n\)</span>.</p>
 <p><span class="math display">\[\begin{align}\label{modelo}
 g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}, \quad t=1, \ldots, n,
 \end{align}\]</span></p>
@@ -491,7 +491,7 @@ g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}, \quad t=1, \ldots, n,
 \]</span></p>
 <p><br></p>
 <p><span class="math display">\[
-\ell_t(\mu_t,\lambda)=\log\prod_{i=1}^{n}\dfrac{dF(y; \lambda, \mu_{\tau}, \tau)}{dy}
+\ell_t(\mu_t,\lambda)=\log\prod_{i=1}^{n}\dfrac{dF(y; \lambda, \mu_{\tau}, \tau)}{dy}.
 \]</span></p>
 </section>
 <section id="inferência---intervalos-de-confiança" class="slide level2">
@@ -499,7 +499,7 @@ g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}, \quad t=1, \ldots, n,
 <p>Seja <span class="math inline">\(\theta_r, r= 1,2,\ldots,k + 2\)</span>, o <span class="math inline">\(r\)</span>-ésimo componente do vetor de parâmetros <span class="math inline">\(\mathbf{\theta}\)</span>. O intervalo de confiança assintótico de <span class="math inline">\(100 (1- \alpha)\%\)</span> para <span class="math inline">\(\theta_r\)</span> é dado por <span class="math display">\[\begin{align*}
 \left[ \widehat{\theta}_r \pm z_{1-\alpha /2} \mbox{se}( \widehat{\theta}_r )\right] , \quad r=1,\ldots, k + 2,
 \end{align*}\]</span></p>
-<p>em que <span class="math inline">\(z_{1-\alpha/2}\)</span> é o quantil da distribuição normal padrão e <span class="math inline">\(\text{se}(\widehat{\theta}_r)\)</span> é o erro padrão assintótico de <span class="math inline">\(\widehat{\theta}_r\)</span></p>
+<p>em que <span class="math inline">\(z_{1-\alpha/2}\)</span> é o quantil da distribuição normal padrão e <span class="math inline">\(\text{se}(\widehat{\theta}_r)\)</span> é o erro padrão assintótico de <span class="math inline">\(\widehat{\theta}_r\)</span>.</p>
 </section>
 <section id="inferência---teste-de-hipótese" class="slide level2">
 <h2>Inferência - Teste de Hipótese</h2>
@@ -736,9 +736,9 @@ Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
 <h2>Covariáveis</h2>
 <p><br></p>
 <ul>
-<li>IDHe: Índice de desenvolvimento humano educacional no ano de 2017 (<span class="math inline">\(x_1\)</span>);</li>
-<li>Área: Área do estado considerado em 2019 (<span class="math inline">\(x_2\)</span>);</li>
-<li>Densidade demográfica: Densidade demográfica do estado considerado 2019 (<span class="math inline">\(x_3\)</span>);</li>
+<li>IDHe: Índice de desenvolvimento humano educacional no ano de 2017 (<span class="math inline">\(x_1\)</span>).</li>
+<li>Área: Área do estado considerado em 2019 (<span class="math inline">\(x_2\)</span>).</li>
+<li>Densidade demográfica: Densidade demográfica do estado considerado 2019 (<span class="math inline">\(x_3\)</span>).</li>
 <li>Pobreza: Índice de pobreza do estado em questão em 2019 (<span class="math inline">\(x_4\)</span>).</li>
 </ul>
 </section>
