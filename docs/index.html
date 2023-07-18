@@ -409,10 +409,11 @@
   <p class="author"><br> Alisson Rosa <br> <br> Orientadora: Prof.&nbsp;Laís Helen Loose</p>
 </section>
 
-<section id="introdução" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
-<h2>Introdução</h2>
+<section id="sumário" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
+<h2>Sumário</h2>
 <div>
 <ul>
+<li class="fragment">Introdução</li>
 <li class="fragment">Revisão Teórica
 <ul>
 <li class="fragment">Distribuição Chen</li>
@@ -426,6 +427,26 @@
 </ul></li>
 <li class="fragment">Aplicação</li>
 </ul>
+</div>
+</section>
+<section id="introdução" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.04">
+<h2>Introdução</h2>
+<div>
+<ul>
+<li class="fragment"><span class="citation" data-cites="gallardo2020parametric">Gallardo et al. (<a href="#/ref-gallardo2020parametric" role="doc-biblioref" onclick="return false;">2020</a>)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li class="fragment"><span class="citation" data-cites="de2022burr">Araújo, Guerra, e Peña-Ramı́rez (<a href="#/ref-de2022burr" role="doc-biblioref" onclick="return false;">2022</a>)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li class="fragment"><span class="citation" data-cites="saulo2023modeling">Saulo et al. (<a href="#/ref-saulo2023modeling" role="doc-biblioref" onclick="return false;">2023</a>)</span></li>
+</ul>
+<p><br></p>
+<div class="fragment strike">
+<p>Implementação computacional pública e simplificada</p>
+</div>
 </div>
 </section>
 <section id="distribuição-chen" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
@@ -459,22 +480,8 @@ Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)
 <p><br></p>
 <p>Seja <span class="math inline">\(Y_1, \ldots, Y_n\)</span> variáveis aleatórias independentes, em que cada <span class="math inline">\(Y_t\)</span>, com <span class="math inline">\(t=1, \ldots, n\)</span></p>
 <p><span class="math display">\[\begin{align}\label{modelo}
-g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}= \eta_t, \quad t=1, \ldots, n,
+g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}, \quad t=1, \ldots, n,
 \end{align}\]</span></p>
-</section>
-<section id="alguns-modelos-de-regressão-quantílicos" class="slide level2">
-<h2>Alguns Modelos de Regressão Quantílicos</h2>
-<ul>
-<li><span class="citation" data-cites="gallardo2020parametric">Gallardo et al. (<a href="#/ref-gallardo2020parametric" role="doc-biblioref" onclick="return false;">2020</a>)</span></li>
-</ul>
-<p><br></p>
-<ul>
-<li><span class="citation" data-cites="de2022burr">Araújo, Guerra, e Peña-Ramı́rez (<a href="#/ref-de2022burr" role="doc-biblioref" onclick="return false;">2022</a>)</span></li>
-</ul>
-<p><br></p>
-<ul>
-<li><span class="citation" data-cites="saulo2023modeling">Saulo et al. (<a href="#/ref-saulo2023modeling" role="doc-biblioref" onclick="return false;">2023</a>)</span></li>
-</ul>
 </section>
 <section id="inferência---quantidades-básicas" class="slide level2">
 <h2>Inferência - Quantidades Básicas</h2>
@@ -525,7 +532,7 @@ R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\mathbf{\theta}}) -\ell(\
 <h2>Estrutura Básica</h2>
 <p><img data-src="imgs/Rep1.png" class="absolute" style="top: 150px; right: 30px; width: 200px; height: 250px; "></p>
 <ul>
-<li>Unidade Básica de código compartilhavel</li>
+<li>Unidade Básica de código compartilhável</li>
 </ul>
 <p><br></p>
 <ul>
@@ -570,7 +577,7 @@ g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}
 \]</span></p>
 <p>tomando <span class="math inline">\(g(.) = \log(.)\)</span></p>
 <p><span class="math display">\[
-\mu_t = \exp(2 + (0.5 * X$X1) + (-2 * X$X2)  + (1 * X$X3))
+\mu = \exp(2 + (0.5 * X$X1) + (-2 * X$X2)  + (1 * X$X3))
 \]</span></p>
 </section>
 <section id="rchen-e-chen_reg-1" class="slide level2">
@@ -725,17 +732,15 @@ Coefficients:
 Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
 \]</span></p>
 </section>
-<section id="aplicação-2" class="slide level2">
-<h2>Aplicação</h2>
+<section id="covariáveis" class="slide level2">
+<h2>Covariáveis</h2>
+<p><br></p>
 <ul>
 <li>IDHe: Índice de desenvolvimento humano educacional no ano de 2017 (<span class="math inline">\(x_1\)</span>);</li>
 <li>Área: Área do estado considerado em 2019 (<span class="math inline">\(x_2\)</span>);</li>
 <li>Densidade demográfica: Densidade demográfica do estado considerado 2019 (<span class="math inline">\(x_3\)</span>);</li>
 <li>Pobreza: Índice de pobreza do estado em questão em 2019 (<span class="math inline">\(x_4\)</span>).</li>
 </ul>
-</section>
-<section id="densidade" class="slide level2">
-<h2>Densidade</h2>
 </section>
 <section id="resumo-do-ajuste" class="slide level2">
 <h2>Resumo do Ajuste</h2>
@@ -887,11 +892,10 @@ Pobreza
 
 </table>
 </section>
-<section id="gráficos" class="slide level2">
+<section id="gráficos" class="slide level2" data-background-image="https://htmlcolorcodes.com/assets/images/colors/sky-blue-color-solid-background-1920x1080.png" data-background-opacity="0.02">
 <h2>Gráficos</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource .r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">plot</span>(model)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img data-src="imgs/envelope.png" class="absolute" style="top: 45px; right: 50px; width: 200px; height: 350px; "> <img data-src="imgs/histograma.png" class="absolute" style="top: 45px; left: 100px; width: 200px; height: 350px; "> <img data-src="imgs/resid_vs_fitted.png" class="absolute" style="top: 150px; right: 170px; width: 200px; height: 350px; "> <img data-src="imgs/resid_vs_index.png" class="absolute" style="top: 45px; right: 190px; width: 200px; height: 350px; "></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource .r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">plot</span>(model)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img data-src="imgs/envelope.png" class="absolute" style="top: 410px; right: 90px; width: 300px; height: 280px; "> <img data-src="imgs/histograma.png" class="absolute" style="top: 120px; left: 90px; width: 300px; height: 280px; "> <img data-src="imgs/resid_vs_fitted.png" class="absolute" style="top: 120px; right: 90px; width: 300px; height: 280px; "> <img data-src="imgs/resid_vs_index.png" class="absolute" style="top: 410px; left: 90px; width: 300px; height: 280px; "></p>
 </section></section>
 <section>
 <section id="considerações-finais" class="title-slide slide level1 center">

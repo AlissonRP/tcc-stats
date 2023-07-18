@@ -23,9 +23,11 @@ format:
 lang: pt
 ---
 
-## Introdução  {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+## Sumário  {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
 
 ::: {.incremental}
+
+- Introdução
 - Revisão Teórica
   - Distribuição Chen
   - Reparametrização
@@ -39,6 +41,34 @@ lang: pt
 
 
 :::
+
+
+##  Introdução {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.04}
+
+
+::: {.incremental}
+
+* @gallardo2020parametric 
+
+<br />
+
+* @de2022burr
+
+<br />
+
+* @saulo2023modeling
+
+<br />
+
+
+
+::: {.fragment .strike}
+ Implementação computacional pública e simplificada
+:::
+
+
+:::
+
 
 
 ## Distribuição Chen {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
@@ -92,22 +122,12 @@ Para $\tau$ fixo e pertencente ao intervalo $(0,1)$, consideraremos $\mu=\mu_{\t
 Seja $Y_1, \ldots, Y_n$ variáveis aleatórias independentes, em que cada $Y_t$, com $t=1, \ldots, n$
 
 \begin{align}\label{modelo}
-g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}= \eta_t, \quad t=1, \ldots, n,
+g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}, \quad t=1, \ldots, n,
 \end{align}
 
 
-## Alguns Modelos de Regressão Quantílicos 
-
-* @gallardo2020parametric 
-
-<br />
-
-* @de2022burr
-
-<br />
 
 
-* @saulo2023modeling
 
 
 
@@ -190,7 +210,7 @@ em que $\ell(\widehat{\mathbf{\theta}}_0)$ é a log-verossimilhança maximizada 
 
 ![](imgs/Rep1.png){.absolute top=150 right=30 width="200" height="250"}
 
-* Unidade Básica de código compartilhavel
+* Unidade Básica de código compartilhável
 
 <br />
 
@@ -238,7 +258,7 @@ $$
 
 tomando $g(.) = \log(.)$
 $$
-\mu_t = \exp(2 + (0.5 * X$X1) + (-2 * X$X2)  + (1 * X$X3))
+\mu = \exp(2 + (0.5 * X$X1) + (-2 * X$X2)  + (1 * X$X3))
 $$
 
 ##  `rchen` e `chen_reg`
@@ -358,9 +378,9 @@ Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
 $$
 
 
-## Aplicação
+## Covariáveis
 
-
+<br />
 
 
 
@@ -370,7 +390,7 @@ $$
 * Pobreza: Índice de pobreza do estado em questão em 2019 ($x_4$).
 
 
-## Densidade
+
 
 
 
@@ -473,19 +493,17 @@ model |>
 </table>
 
 
-## Gráficos
+## Gráficos {background-image="https://htmlcolorcodes.com/assets/images/colors/sky-blue-color-solid-background-1920x1080.png" background-opacity=0.02}
 
 ```.r
-
 plot(model)
-
 ```
 
 
-![](imgs/envelope.png){.absolute top=45 right=50 width="200" height="350"}
-![](imgs/histograma.png){.absolute top=45 left=100 width="200" height="350"}
-![](imgs/resid_vs_fitted.png){.absolute top=150 right=170 width="200" height="350"}
-![](imgs/resid_vs_index.png){.absolute top=45 right=190 width="200" height="350"}
+![](imgs/envelope.png){.absolute top=410 right=90 width="300" height="280"}
+![](imgs/histograma.png){.absolute top=120 left=90 width="300" height="280"}
+![](imgs/resid_vs_fitted.png){.absolute top=120 right=90 width="300" height="280"}
+![](imgs/resid_vs_index.png){.absolute top=410 left=90 width="300" height="280"}
 
 
 # Considerações finais
