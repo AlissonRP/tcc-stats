@@ -39,10 +39,7 @@ lang: pt
 
 
 :::
-```r
 
-
-```
 
 ## Distribuição Chen {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
 
@@ -62,7 +59,9 @@ Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)
 \end{align}
 
 
-em que $y>0$    e
+em que $y>0$  e
+
+<br />
 
 $\delta , \lambda > 0$ são os parâmetros de forma 
 
@@ -86,18 +85,26 @@ $\delta , \lambda > 0$ são os parâmetros de forma
 ## Modelo de Regressão 
 
 
-Para $\tau$ fixo e pertencente ao intervalo $(0,1)$, consideraremos $\mu=\mu_{\tau}$ o $\tau$-ésimo quantil, seja $Y_1, \ldots, Y_n$ variáveis aleatórias independentes, em que cada $Y_t$, com $t=1, \ldots, n$
+Para $\tau$ fixo e pertencente ao intervalo $(0,1)$, consideraremos $\mu=\mu_{\tau}$ o $\tau$-ésimo quantil.
+
+<br />
+
+Seja $Y_1, \ldots, Y_n$ variáveis aleatórias independentes, em que cada $Y_t$, com $t=1, \ldots, n$
 
 \begin{align}\label{modelo}
 g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}= \eta_t, \quad t=1, \ldots, n,
 \end{align}
 
 
-## Modelos de Regressão 
+## Alguns Modelos de Regressão Quantílicos 
 
 * @gallardo2020parametric 
 
+<br />
+
 * @de2022burr
+
+<br />
 
 
 * @saulo2023modeling
@@ -117,8 +124,10 @@ $$
 \ell(\mathbf{\theta})=\sum\limits_{t=1}^{n}\ell_t(\mu_t,\lambda),
 $$
 
+<br />
+
 $$
-\ell_t(\mu_t,\lambda)=\log\prod_{i=1}^{n}\dfrac{dF(y; \lambda, \mu_{\tau}, \tau)}{dy}.
+\ell_t(\mu_t,\lambda)=\log\prod_{i=1}^{n}\dfrac{dF(y; \lambda, \mu_{\tau}, \tau)}{dy}
 $$
 
 
@@ -141,7 +150,7 @@ Agora, consideremos o interesse em testar as hipóteses
 \begin{align*}
    H_0: \theta_r = \theta_r^0 \quad  versus \quad H_1: \theta_r \neq \theta_r^0,
 \end{align*}
-em que $\theta_r^0$ representa um valor específico para o parâmetro desconhecido $\theta_r$. Raiz quadrada da estatística de Wald, definida por
+em que $\theta_r^0$ representa um valor específico para o parâmetro desconhecido $\theta_r$. Utilizamos como estatística de teste a raiz quadrada da estatística de Wald, definida por
 \begin{align*}
 z=\frac{\widehat{\theta}_r - \theta_r^0}{\mbox{se}( \widehat{\theta}_r )}.
 \end{align*}
@@ -154,7 +163,11 @@ Para avaliar a adequação do ajuste do modelo consideramos o resíduo quantíli
 \begin{align*}
  r_t= \Phi^{-1}\left\lbrace F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\right\rbrace,
   \end{align*}
-em que $\Phi(\cdot)$  é a função de distribuição acumulada da normal padrão e $F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )$ é a função de distribuição acumulada dada definida anteriormente. Se os parâmetros do modelo são estimados consistentemente, $r_t$  converge para uma distribuição normal padrão.
+em que $\Phi(\cdot)$  é a função de distribuição acumulada da normal padrão e $F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )$ é a função de distribuição acumulada dada definida anteriormente. 
+
+<br />
+
+Se os parâmetros do modelo são estimados consistentemente, $r_t$  converge para uma distribuição normal padrão.
 
 
 ## Medidas de Diagnóstico
@@ -179,14 +192,21 @@ em que $\ell(\widehat{\mathbf{\theta}}_0)$ é a log-verossimilhança maximizada 
 
 * Unidade Básica de código compartilhavel
 
-* Simplificação
+<br />
 
-* etc e tal
+* Ambientes e Escopos
+
+<br />
+
+* Facilitar e automatizar 
 
 ## Funções básicas
 
 * `chen_reg`
 * `rchen`
+
+<br />
+
 * `auto_chen`
 * `best_chen`
 
@@ -235,11 +255,14 @@ class(model)
 
 * Classes no S3 em `R`  são "praticamente" `strings` 
 
+<br />
+
 * Uma função genérica define uma interface que usa implementações diferentes baseados na classe de input
 
 
 * Uma implementação específica para uma classe é chamada **método**
 
+<br />
 
 * **Nem todo** objeto  segue orientação a objetos
 
@@ -248,7 +271,7 @@ class(model)
 
 ##  `chenreg` e os métodos 
 
-* citar alguns métods
+
 
 ```{r, echo = T}
 model |> summary()
@@ -275,9 +298,9 @@ auto_model
 ```
 
 
+<br />
 
-
-* a função `auto_chen` somente *informa* as variáveis, ela **não** retorna modelo algum!
+* A função `auto_chen` somente **informa** os resultados, ela **não** retorna modelo algum!
 
 
 ##  `auto_chen` e `best_chen`
@@ -301,7 +324,13 @@ best_model
 
 ## Interface Web (Shiny)
 
+* Necessário conhecer R para utilizar o pacote
+
+<br />
+
 * Interface Intuitiva
+
+<br />
 
 * Acesso ao modelo de "qualquer" lugar
 
@@ -309,16 +338,21 @@ best_model
 
 # Aplicação
 
-##
+## Dados utilizados
 
 
 *  Os dados utilizados neste estudo são provenientes do Instituto Brasileiro de Geografia e Estatística (IBGE)
 
+<br />
 
 *  Desenvolver um modelo de regressão quantílico Chen para prever quantis do PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019
 
 ## Aplicação
 *  Consideramos como variável resposta o PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019 que chamaremos de PIB referencial, que é dado por
+
+
+<br />
+
 $$
 Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
 $$
@@ -340,7 +374,7 @@ $$
 
 
 
-## Resumo do Ajuste - suprimir output deixar só o código
+## Resumo do Ajuste 
 
 
 ```{r}
@@ -458,14 +492,21 @@ plot(model)
 
 
 
-##
+## Perspectivas
 
 
 
 * Aperfeiçoamento da interface \textit{web}
 
+<br />
+
+<br />
+
 * Extensão do modelo para dados com dependência temporal
 
+<br />
+
+<br />
 
 * Expansão das aplicacões práticas.  
 

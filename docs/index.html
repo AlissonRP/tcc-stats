@@ -427,7 +427,6 @@
 <li class="fragment">Aplicação</li>
 </ul>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="distribuição-chen" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
 <h2>Distribuição Chen</h2>
@@ -441,6 +440,7 @@ F(y; \lambda,\delta)= 1 - \exp \left\lbrace   \delta \left[ 1-\exp(y^{\lambda}) 
 Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)}{\delta}\right) \right] \right\rbrace  ^{\frac{1}{\lambda}}, \quad 0&lt;\tau&lt;1.
 \end{align}\]</span></p>
 <p>em que <span class="math inline">\(y&gt;0\)</span> e</p>
+<p><br></p>
 <p><span class="math inline">\(\delta , \lambda &gt; 0\)</span> são os parâmetros de forma</p>
 </section>
 <section id="distribuição-chen-1" class="slide level2" data-background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" data-background-opacity="0.06">
@@ -455,17 +455,25 @@ Q(\tau; \lambda , \delta)=\left\lbrace  \log\left[ 1 - \left( \frac{\log(1-\tau)
 </section>
 <section id="modelo-de-regressão" class="slide level2">
 <h2>Modelo de Regressão</h2>
-<p>Para <span class="math inline">\(\tau\)</span> fixo e pertencente ao intervalo <span class="math inline">\((0,1)\)</span>, consideraremos <span class="math inline">\(\mu=\mu_{\tau}\)</span> o <span class="math inline">\(\tau\)</span>-ésimo quantil, seja <span class="math inline">\(Y_1, \ldots, Y_n\)</span> variáveis aleatórias independentes, em que cada <span class="math inline">\(Y_t\)</span>, com <span class="math inline">\(t=1, \ldots, n\)</span></p>
+<p>Para <span class="math inline">\(\tau\)</span> fixo e pertencente ao intervalo <span class="math inline">\((0,1)\)</span>, consideraremos <span class="math inline">\(\mu=\mu_{\tau}\)</span> o <span class="math inline">\(\tau\)</span>-ésimo quantil.</p>
+<p><br></p>
+<p>Seja <span class="math inline">\(Y_1, \ldots, Y_n\)</span> variáveis aleatórias independentes, em que cada <span class="math inline">\(Y_t\)</span>, com <span class="math inline">\(t=1, \ldots, n\)</span></p>
 <p><span class="math display">\[\begin{align}\label{modelo}
 g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}= \eta_t, \quad t=1, \ldots, n,
 \end{align}\]</span></p>
 </section>
-<section id="modelos-de-regressão" class="slide level2">
-<h2>Modelos de Regressão</h2>
+<section id="alguns-modelos-de-regressão-quantílicos" class="slide level2">
+<h2>Alguns Modelos de Regressão Quantílicos</h2>
 <ul>
-<li><p><span class="citation" data-cites="gallardo2020parametric">Gallardo et al. (<a href="#/ref-gallardo2020parametric" role="doc-biblioref" onclick="return false;">2020</a>)</span></p></li>
-<li><p><span class="citation" data-cites="de2022burr">Araújo, Guerra, e Peña-Ramı́rez (<a href="#/ref-de2022burr" role="doc-biblioref" onclick="return false;">2022</a>)</span></p></li>
-<li><p><span class="citation" data-cites="saulo2023modeling">Saulo et al. (<a href="#/ref-saulo2023modeling" role="doc-biblioref" onclick="return false;">2023</a>)</span></p></li>
+<li><span class="citation" data-cites="gallardo2020parametric">Gallardo et al. (<a href="#/ref-gallardo2020parametric" role="doc-biblioref" onclick="return false;">2020</a>)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="citation" data-cites="de2022burr">Araújo, Guerra, e Peña-Ramı́rez (<a href="#/ref-de2022burr" role="doc-biblioref" onclick="return false;">2022</a>)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="citation" data-cites="saulo2023modeling">Saulo et al. (<a href="#/ref-saulo2023modeling" role="doc-biblioref" onclick="return false;">2023</a>)</span></li>
 </ul>
 </section>
 <section id="inferência---quantidades-básicas" class="slide level2">
@@ -474,8 +482,9 @@ g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}= \eta_t, \quad t=1, \ldots, n,
 <p><span class="math display">\[
 \ell(\mathbf{\theta})=\sum\limits_{t=1}^{n}\ell_t(\mu_t,\lambda),
 \]</span></p>
+<p><br></p>
 <p><span class="math display">\[
-\ell_t(\mu_t,\lambda)=\log\prod_{i=1}^{n}\dfrac{dF(y; \lambda, \mu_{\tau}, \tau)}{dy}.
+\ell_t(\mu_t,\lambda)=\log\prod_{i=1}^{n}\dfrac{dF(y; \lambda, \mu_{\tau}, \tau)}{dy}
 \]</span></p>
 </section>
 <section id="inferência---intervalos-de-confiança" class="slide level2">
@@ -489,7 +498,7 @@ g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}= \eta_t, \quad t=1, \ldots, n,
 <h2>Inferência - Teste de Hipótese</h2>
 <p>Agora, consideremos o interesse em testar as hipóteses <span class="math display">\[\begin{align*}
    H_0: \theta_r = \theta_r^0 \quad  versus \quad H_1: \theta_r \neq \theta_r^0,
-\end{align*}\]</span> em que <span class="math inline">\(\theta_r^0\)</span> representa um valor específico para o parâmetro desconhecido <span class="math inline">\(\theta_r\)</span>. Raiz quadrada da estatística de Wald, definida por <span class="math display">\[\begin{align*}
+\end{align*}\]</span> em que <span class="math inline">\(\theta_r^0\)</span> representa um valor específico para o parâmetro desconhecido <span class="math inline">\(\theta_r\)</span>. Utilizamos como estatística de teste a raiz quadrada da estatística de Wald, definida por <span class="math display">\[\begin{align*}
 z=\frac{\widehat{\theta}_r - \theta_r^0}{\mbox{se}( \widehat{\theta}_r )}.
 \end{align*}\]</span> Sob <span class="math inline">\(H_0\)</span> e para <span class="math inline">\(n\)</span> grande, <span class="math inline">\(z\)</span> tem uma distribuição normal padrão.</p>
 </section>
@@ -497,7 +506,9 @@ z=\frac{\widehat{\theta}_r - \theta_r^0}{\mbox{se}( \widehat{\theta}_r )}.
 <h2>Medidas de Diagnóstico</h2>
 <p>Para avaliar a adequação do ajuste do modelo consideramos o resíduo quantílico, que é definido como <span class="math display">\[\begin{align*}
 r_t= \Phi^{-1}\left\lbrace F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\right\rbrace,
-  \end{align*}\]</span> em que <span class="math inline">\(\Phi(\cdot)\)</span> é a função de distribuição acumulada da normal padrão e <span class="math inline">\(F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\)</span> é a função de distribuição acumulada dada definida anteriormente. Se os parâmetros do modelo são estimados consistentemente, <span class="math inline">\(r_t\)</span> converge para uma distribuição normal padrão.</p>
+  \end{align*}\]</span> em que <span class="math inline">\(\Phi(\cdot)\)</span> é a função de distribuição acumulada da normal padrão e <span class="math inline">\(F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\)</span> é a função de distribuição acumulada dada definida anteriormente.</p>
+<p><br></p>
+<p>Se os parâmetros do modelo são estimados consistentemente, <span class="math inline">\(r_t\)</span> converge para uma distribuição normal padrão.</p>
 </section>
 <section id="medidas-de-diagnóstico-1" class="slide level2">
 <h2>Medidas de Diagnóstico</h2>
@@ -514,9 +525,15 @@ R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\mathbf{\theta}}) -\ell(\
 <h2>Estrutura Básica</h2>
 <p><img data-src="imgs/Rep1.png" class="absolute" style="top: 150px; right: 30px; width: 200px; height: 250px; "></p>
 <ul>
-<li><p>Unidade Básica de código compartilhavel</p></li>
-<li><p>Simplificação</p></li>
-<li><p>etc e tal</p></li>
+<li>Unidade Básica de código compartilhavel</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Ambientes e Escopos</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Facilitar e automatizar</li>
 </ul>
 </section>
 <section id="funções-básicas" class="slide level2">
@@ -524,6 +541,9 @@ R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\mathbf{\theta}}) -\ell(\
 <ul>
 <li><code>chen_reg</code></li>
 <li><code>rchen</code></li>
+</ul>
+<p><br></p>
+<ul>
 <li><code>auto_chen</code></li>
 <li><code>best_chen</code></li>
 </ul>
@@ -531,19 +551,19 @@ R^2= 1 - \exp\left[ - \frac{2}{n} \left[ \ell(\widehat{\mathbf{\theta}}) -\ell(\
 <section id="rchen-e-chen_reg" class="slide level2">
 <h2><code>rchen</code> e <code>chen_reg</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(chenreg)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>lambda <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">0.5</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">1</span>)</span>
-<span id="cb2-6"><a href="#cb2-6"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(n)),<span class="fu">runif</span>(n), <span class="fu">runif</span>(n), <span class="fu">runif</span>(n))</span>
-<span id="cb2-7"><a href="#cb2-7"></a>eta <span class="ot">&lt;-</span> X <span class="sc">%*%</span> <span class="fu">as.matrix</span>(beta)</span>
-<span id="cb2-8"><a href="#cb2-8"></a>quantile <span class="ot">&lt;-</span> <span class="fu">exp</span>(eta)</span>
-<span id="cb2-9"><a href="#cb2-9"></a>y <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">rchen</span>(n, quantile, lambda, <span class="at">tau =</span> <span class="fl">0.7</span>)</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a></span>
-<span id="cb2-12"><a href="#cb2-12"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X[, <span class="sc">-</span><span class="dv">1</span>], y) <span class="co"># we don't need columns of 1</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a>model <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">chen_reg</span>(data, y <span class="sc">~</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3, <span class="at">tau =</span> <span class="fl">0.7</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(chenreg)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>lambda <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>beta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">0.5</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(n)),<span class="fu">runif</span>(n), <span class="fu">runif</span>(n), <span class="fu">runif</span>(n))</span>
+<span id="cb1-7"><a href="#cb1-7"></a>eta <span class="ot">&lt;-</span> X <span class="sc">%*%</span> <span class="fu">as.matrix</span>(beta)</span>
+<span id="cb1-8"><a href="#cb1-8"></a>quantile <span class="ot">&lt;-</span> <span class="fu">exp</span>(eta)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>y <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">rchen</span>(n, quantile, lambda, <span class="at">tau =</span> <span class="fl">0.7</span>)</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X[, <span class="sc">-</span><span class="dv">1</span>], y) <span class="co"># we don't need columns of 1</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>model <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">chen_reg</span>(data, y <span class="sc">~</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3, <span class="at">tau =</span> <span class="fl">0.7</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="math display">\[
 g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}
@@ -556,7 +576,7 @@ g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}
 <section id="rchen-e-chen_reg-1" class="slide level2">
 <h2><code>rchen</code> e <code>chen_reg</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>model</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>model</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -567,7 +587,7 @@ Coefficients:
      lambda (Intercept)          X1          X2          X3 
    1.021501    2.002415    0.503865   -2.001213    1.003811 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">class</span>(model)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">class</span>(model)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "chenreg"</code></pre>
 </div>
@@ -576,19 +596,22 @@ Coefficients:
 <section id="classes-funções-e-métodos" class="slide level2">
 <h2>Classes, Funções e Métodos</h2>
 <ul>
-<li><p>Classes no S3 em <code>R</code> são “praticamente” <code>strings</code></p></li>
+<li>Classes no S3 em <code>R</code> são “praticamente” <code>strings</code></li>
+</ul>
+<p><br></p>
+<ul>
 <li><p>Uma função genérica define uma interface que usa implementações diferentes baseados na classe de input</p></li>
 <li><p>Uma implementação específica para uma classe é chamada <strong>método</strong></p></li>
-<li><p><strong>Nem todo</strong> objeto segue orientação a objetos</p></li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>Nem todo</strong> objeto segue orientação a objetos</li>
 </ul>
 </section>
 <section id="chenreg-e-os-métodos" class="slide level2">
 <h2><code>chenreg</code> e os métodos</h2>
-<ul>
-<li>citar alguns métods</li>
-</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>model <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>model <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -612,7 +635,7 @@ Number of iterations in BFGS optim: 88
 AIC: 1433.1618  BIC: 1454.2349  RMSE: 1.297 
 Pseudo R-squared: 0.9412</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>model <span class="sc">|&gt;</span> <span class="fu">summary</span>() <span class="sc">|&gt;</span> <span class="fu">class</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>model <span class="sc">|&gt;</span> <span class="fu">summary</span>() <span class="sc">|&gt;</span> <span class="fu">class</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "summary.chenreg"</code></pre>
 </div>
@@ -621,11 +644,11 @@ Pseudo R-squared: 0.9412</code></pre>
 <section id="auto_chen-e-best_chen" class="slide level2">
 <h2><code>auto_chen</code> e <code>best_chen</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a>auto_model <span class="ot">=</span> <span class="fu">auto_chen</span>(<span class="st">"y"</span>, data, <span class="at">tau =</span> <span class="fl">0.7</span>, <span class="at">total =</span> <span class="dv">5</span>)</span>
-<span id="cb11-4"><a href="#cb11-4"></a></span>
-<span id="cb11-5"><a href="#cb11-5"></a>auto_model</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>auto_model <span class="ot">=</span> <span class="fu">auto_chen</span>(<span class="st">"y"</span>, data, <span class="at">tau =</span> <span class="fl">0.7</span>, <span class="at">total =</span> <span class="dv">5</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a>auto_model</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  variables     rmse      aic      bic r.squared significants normal_residuals
 1   X2 + X3 1.949668 1805.047 1821.905 0.8758230            3       not-normal
@@ -635,18 +658,19 @@ Pseudo R-squared: 0.9412</code></pre>
 5        X3 4.932399 2738.553 2751.197 0.1934862            2       not-normal</code></pre>
 </div>
 </div>
+<p><br></p>
 <ul>
-<li>a função <code>auto_chen</code> somente <em>informa</em> as variáveis, ela <strong>não</strong> retorna modelo algum!</li>
+<li>A função <code>auto_chen</code> somente <strong>informa</strong> os resultados, ela <strong>não</strong> retorna modelo algum!</li>
 </ul>
 </section>
 <section id="auto_chen-e-best_chen-1" class="slide level2">
 <h2><code>auto_chen</code> e <code>best_chen</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>best_model <span class="ot">=</span> <span class="fu">best_chen</span>(auto_model)</span>
-<span id="cb13-4"><a href="#cb13-4"></a></span>
-<span id="cb13-5"><a href="#cb13-5"></a>best_model</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a>best_model <span class="ot">=</span> <span class="fu">best_chen</span>(auto_model)</span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a>best_model</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -662,8 +686,15 @@ Coefficients:
 <section id="interface-web-shiny" class="slide level2">
 <h2>Interface Web (Shiny)</h2>
 <ul>
-<li><p>Interface Intuitiva</p></li>
-<li><p>Acesso ao modelo de “qualquer” lugar</p></li>
+<li>Necessário conhecer R para utilizar o pacote</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Interface Intuitiva</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Acesso ao modelo de “qualquer” lugar</li>
 </ul>
 </section>
 <section id="section" class="slide level2" data-background-iframe="https://alissonrp.shinyapps.io/full_app/?_ga=2.83236885.2012925531.1652155237-1564274603.1652155237" data-background-interactive="true">
@@ -674,11 +705,14 @@ Coefficients:
 <h1>Aplicação</h1>
 
 </section>
-<section id="section-1" class="slide level2">
-<h2></h2>
+<section id="dados-utilizados" class="slide level2">
+<h2>Dados utilizados</h2>
 <ul>
-<li><p>Os dados utilizados neste estudo são provenientes do Instituto Brasileiro de Geografia e Estatística (IBGE)</p></li>
-<li><p>Desenvolver um modelo de regressão quantílico Chen para prever quantis do PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019</p></li>
+<li>Os dados utilizados neste estudo são provenientes do Instituto Brasileiro de Geografia e Estatística (IBGE)</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Desenvolver um modelo de regressão quantílico Chen para prever quantis do PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019</li>
 </ul>
 </section>
 <section id="aplicação-1" class="slide level2">
@@ -686,6 +720,7 @@ Coefficients:
 <ul>
 <li>Consideramos como variável resposta o PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019 que chamaremos de PIB referencial, que é dado por</li>
 </ul>
+<p><br></p>
 <p><span class="math display">\[
 Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
 \]</span></p>
@@ -702,25 +737,25 @@ Y = \dfrac{\text{PIB}_e}{\text{PIB}_{br}}
 <section id="densidade" class="slide level2">
 <h2>Densidade</h2>
 </section>
-<section id="resumo-do-ajuste---suprimir-output-deixar-só-o-código" class="slide level2">
-<h2>Resumo do Ajuste - suprimir output deixar só o código</h2>
+<section id="resumo-do-ajuste" class="slide level2">
+<h2>Resumo do Ajuste</h2>
 <div class="cell">
 
 </div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a></span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a>model <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">chen_reg</span>(PIB <span class="sc">~</span> ., <span class="at">data =</span> df, <span class="at">tau =</span> <span class="fl">0.4</span>)</span>
-<span id="cb15-4"><a href="#cb15-4"></a></span>
-<span id="cb15-5"><a href="#cb15-5"></a>model <span class="sc">|&gt;</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a>  <span class="fu">summary</span>(<span class="at">format =</span> <span class="cn">TRUE</span>)   <span class="sc">|&gt;</span> </span>
-<span id="cb15-7"><a href="#cb15-7"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">"Estimativa"</span> <span class="ot">=</span> Estimate, </span>
-<span id="cb15-8"><a href="#cb15-8"></a>                <span class="st">"Erro padrão"</span> <span class="ot">=</span> Std_Error, </span>
-<span id="cb15-9"><a href="#cb15-9"></a>                <span class="st">"Valor Z"</span> <span class="ot">=</span> Z_value,</span>
-<span id="cb15-10"><a href="#cb15-10"></a>                <span class="st">"P Valor"</span> <span class="ot">=</span> P_Value) <span class="sc">|&gt;</span></span>
-<span id="cb15-11"><a href="#cb15-11"></a>  fastrep<span class="sc">::</span><span class="fu">tbl</span>(<span class="st">"Resultados do ajuste do modelo de regressão Chen para o PIB Referencial"</span>)</span>
-<span id="cb15-12"><a href="#cb15-12"></a></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a>model <span class="ot">&lt;-</span> chenreg<span class="sc">::</span><span class="fu">chen_reg</span>(PIB <span class="sc">~</span> ., <span class="at">data =</span> df, <span class="at">tau =</span> <span class="fl">0.4</span>)</span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a>model <span class="sc">|&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">summary</span>(<span class="at">format =</span> <span class="cn">TRUE</span>)   <span class="sc">|&gt;</span> </span>
+<span id="cb14-7"><a href="#cb14-7"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">"Estimativa"</span> <span class="ot">=</span> Estimate, </span>
+<span id="cb14-8"><a href="#cb14-8"></a>                <span class="st">"Erro padrão"</span> <span class="ot">=</span> Std_Error, </span>
+<span id="cb14-9"><a href="#cb14-9"></a>                <span class="st">"Valor Z"</span> <span class="ot">=</span> Z_value,</span>
+<span id="cb14-10"><a href="#cb14-10"></a>                <span class="st">"P Valor"</span> <span class="ot">=</span> P_Value) <span class="sc">|&gt;</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a>  fastrep<span class="sc">::</span><span class="fu">tbl</span>(<span class="st">"Resultados do ajuste do modelo de regressão Chen para o PIB Referencial"</span>)</span>
+<span id="cb14-12"><a href="#cb14-12"></a></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 
 <table>
@@ -854,8 +889,8 @@ Pobreza
 </section>
 <section id="gráficos" class="slide level2">
 <h2>Gráficos</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource .r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">plot</span>(model)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource .r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">plot</span>(model)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img data-src="imgs/envelope.png" class="absolute" style="top: 45px; right: 50px; width: 200px; height: 350px; "> <img data-src="imgs/histograma.png" class="absolute" style="top: 45px; left: 100px; width: 200px; height: 350px; "> <img data-src="imgs/resid_vs_fitted.png" class="absolute" style="top: 150px; right: 170px; width: 200px; height: 350px; "> <img data-src="imgs/resid_vs_index.png" class="absolute" style="top: 45px; right: 190px; width: 200px; height: 350px; "></p>
 </section></section>
 <section>
@@ -863,12 +898,20 @@ Pobreza
 <h1>Considerações finais</h1>
 
 </section>
-<section id="section-3" class="slide level2">
-<h2></h2>
+<section id="perspectivas" class="slide level2">
+<h2>Perspectivas</h2>
 <ul>
-<li><p>Aperfeiçoamento da interface </p></li>
-<li><p>Extensão do modelo para dados com dependência temporal</p></li>
-<li><p>Expansão das aplicacões práticas.</p></li>
+<li>Aperfeiçoamento da interface </li>
+</ul>
+<p><br></p>
+<p><br></p>
+<ul>
+<li>Extensão do modelo para dados com dependência temporal</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<ul>
+<li>Expansão das aplicacões práticas.</li>
 </ul>
 </section></section>
 <section id="bibliografia" class="title-slide slide level1 smaller scrollable">
@@ -883,6 +926,9 @@ Araújo, Fernando José Monteiro de, Renata Rojas Guerra, e Fernando A Peña-Ram
 </div>
 <div id="ref-chen2000new" class="csl-entry" role="doc-biblioentry">
 Chen, Zhenmin. 2000. <span>«A new two-parameter lifetime distribution with bathtub shape or increasing failure rate function»</span>. <em>Statistics &amp; Probability Letters</em> 49 (2): 155–61.
+</div>
+<div id="ref-dunn1996" class="csl-entry" role="doc-biblioentry">
+Dunn P. K. Smyth, G. K. 1996. <span>«Randomized quantile residuals»</span>. <em>Journal of Computational and Graphical Statistics</em> 5 (3): 236–44.
 </div>
 <div id="ref-gallardo2020parametric" class="csl-entry" role="doc-biblioentry">
 Gallardo, Diego I, Marcelo Bourguignon, Christian E Galarza, e Héctor W Gómez. 2020. <span>«A parametric quantile regression model for asymmetric response variables on the real line»</span>. <em>Symmetry</em> 12 (12): 1938.
