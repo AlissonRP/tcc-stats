@@ -35,11 +35,14 @@ lang: pt
   - Pacote
   - Interface Web 
 
-- Aplicações
+- Aplicação
 
 
 :::
+```r
 
+
+```
 
 ## Distribuição Chen {background-image="https://www.slidebackground.com/uploads/statistics-background/statistics-success-accounting-video-19.jpg" background-opacity=0.06}
 
@@ -90,13 +93,14 @@ g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}= \eta_t, \quad t=1, \ldots, n,
 \end{align}
 
 
-## Modelo de Regressão 
+## Modelos de Regressão 
 
-CITAÇÃO 1 - GAJALARDO  
+* @gallardo2020parametric 
 
-CITAÇÃO 2 - GUERRA RAMIREZ  
+* @de2022burr
 
-CITAÇÃO 3  SAULO
+
+* @saulo2023modeling
 
 
 
@@ -150,7 +154,7 @@ Para avaliar a adequação do ajuste do modelo consideramos o resíduo quantíli
 \begin{align*}
  r_t= \Phi^{-1}\left\lbrace F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )\right\rbrace,
   \end{align*}
-em que $\Phi(\cdot)$  é a função de distribuição acumulada da normal padrão e $F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )$ é a função de distribuição acumulada dada em \eqref{acumulada}. Se os parâmetros do modelo são estimados consistentemente, $r_t$  converge para uma distribuição normal padrão.
+em que $\Phi(\cdot)$  é a função de distribuição acumulada da normal padrão e $F (y_t; \widehat{\lambda}, \widehat{\mu}_t, \tau )$ é a função de distribuição acumulada dada definida anteriormente. Se os parâmetros do modelo são estimados consistentemente, $r_t$  converge para uma distribuição normal padrão.
 
 
 ## Medidas de Diagnóstico
@@ -167,7 +171,7 @@ em que $\ell(\widehat{\mathbf{\theta}}_0)$ é a log-verossimilhança maximizada 
 
 
 
-![](imgs/Rep1.png){.absolute top=130 right=310 width="100" height="150"}
+
 
 ## Estrutura Básica {background-image="https://htmlcolorcodes.com/assets/images/colors/pastel-purple-color-solid-background-1920x1080.png" background-opacity=0.11}
 
@@ -191,9 +195,9 @@ em que $\ell(\widehat{\mathbf{\theta}}_0)$ é a log-verossimilhança maximizada 
 ##  `rchen` e `chen_reg`
 
 
-```{.r code-line-numbers="6-8"}
+```{r, echo = TRUE}
 
-
+library(chenreg)
 set.seed(3)
 n <- 500
 lambda <- 1
@@ -208,10 +212,18 @@ data <- data.frame(X[, -1], y) # we don't need columns of 1
 model <- chenreg::chen_reg(data, y ~ X1 + X2 + X3, tau = 0.7)
 ```
 
+$$
+g(\mu_t)=  \mathbf{x}_{t}^{\top} \mathbf{\beta}
+$$
+
+tomando $g(.) = \log(.)$
+$$
+\mu_t = \exp(2 + (0.5 * X$X1) + (-2 * X$X2)  + (1 * X$X3))
+$$
 
 ##  `rchen` e `chen_reg`
 
-```{.r code-line-numbers="6-8"}
+```{r, echo=T}
 model
 
 
@@ -221,44 +233,57 @@ class(model)
 
 ## Classes, Funções e Métodos
 
-* Explicar o que é uma classe
-* Falar sobre objetos
-* Falar sobre objetos que são orientados a objetos
-* Explicar sobre as classes e reutilizaão de código
+* Classes no S3 em `R`  são "praticamente" `strings` 
 
-##  `chenreg` e os métodos genéricos
+* Uma função genérica define uma interface que usa implementações diferentes baseados na classe de input
+
+
+* Uma implementação específica para uma classe é chamada **método**
+
+
+* **Nem todo** objeto  segue orientação a objetos
+
+
+
+
+##  `chenreg` e os métodos 
 
 * citar alguns métods
 
-```{.r code-line-numbers="6-8"}
+```{r, echo = T}
 model |> summary()
 
 
+model |> summary() |> class()
+
 ```
+
+
 
 
 ##  `auto_chen` e `best_chen`
 
 
-```{.r code-line-numbers="6-8"}
+```{r , echo=T}
 
 set.seed(3)
 
 auto_model = auto_chen("y", data, tau = 0.7, total = 5)
 
+auto_model
 
 ```
 
 
 
 
-
+* a função `auto_chen` somente *informa* as variáveis, ela **não** retorna modelo algum!
 
 
 ##  `auto_chen` e `best_chen`
 
 
-```{.r code-line-numbers="6-8"}
+```{r, echo = T}
 
 set.seed(3)
 
@@ -276,7 +301,9 @@ best_model
 
 ## Interface Web (Shiny)
 
-* motivacional e tal
+* Interface Intuitiva
+
+* Acesso ao modelo de "qualquer" lugar
 
 ## {background-iframe="https://alissonrp.shinyapps.io/full_app/?_ga=2.83236885.2012925531.1652155237-1564274603.1652155237" background-interactive="true"}
 
@@ -286,7 +313,9 @@ best_model
 
 
 *  Os dados utilizados neste estudo são provenientes do Instituto Brasileiro de Geografia e Estatística (IBGE)
-*  desenvolver um modelo de regressão quantílico Chen para prever quantis do PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019
+
+
+*  Desenvolver um modelo de regressão quantílico Chen para prever quantis do PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019
 
 ## Aplicação
 *  Consideramos como variável resposta o PIB per capita do estado em referência ao PIB per capita do Brasil no ano de 2019 que chamaremos de PIB referencial, que é dado por
@@ -312,8 +341,30 @@ $$
 
 
 ## Resumo do Ajuste - suprimir output deixar só o código
-```.r
-model <- chenreg::chen_reg(PIB ~ ., data = df, quantile = 0.4)
+
+
+```{r}
+library(tidyverse)
+df <- read_csv("https://raw.githubusercontent.com/AlissonRP/gdp-statesBR/main/df") |>
+  select(UF,
+    PIB = GDP, IDHe = `HDI Education 2017`, Área = Area, 
+    `Densidade Demográfica` = `Demographic Density`, Pobreza = Poverty, Região = Region,
+    `GDP rate`
+  ) |>
+  mutate(
+    PIB = PIB / 34533, `Área` = `Área` / sqrt(var(`Área`)),
+    `Densidade Demográfica` = 
+      `Densidade Demográfica` / sqrt(var(`Densidade Demográfica`))
+  )
+
+df <- df |>
+  filter(UF != 'DF') |> 
+  select(-UF, -Região, -`GDP rate`)
+```
+```r
+
+
+model <- chenreg::chen_reg(PIB ~ ., data = df, tau = 0.4)
 
 model |>
   summary(format = TRUE)   |> 
@@ -321,29 +372,71 @@ model |>
                 "Erro padrão" = Std_Error, 
                 "Valor Z" = Z_value,
                 "P Valor" = P_Value) |>
-  fastrep::tbl("Resultados do ajuste do modelo de regressão Chen para o PIB Referencial", 
-    tabs = T, code = T, format = "latex")
+  fastrep::tbl("Resultados do ajuste do modelo de regressão Chen para o PIB Referencial")
 
 
 ```
 
 
 
-## Resumo do Ajuste - Suprimir código deixar só output
-```.r
-model <- chenreg::chen_reg(PIB ~ ., data = df, quantile = 0.4)
+##
 
-model |>
-  summary(format = TRUE)   |> 
-  dplyr::rename("Estimativa" = Estimate, 
-                "Erro padrão" = Std_Error, 
-                "Valor Z" = Z_value,
-                "P Valor" = P_Value) |>
-  fastrep::tbl("Resultados do ajuste do modelo de regressão Chen para o PIB Referencial", 
-    tabs = T, code = T, format = "latex")
-
-
-```
+<table>
+<caption>Resultados do ajuste do modelo de regressão Chen para o PIB Referencial</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:center;"> Estimativa </th>
+   <th style="text-align:center;"> Erro padrão </th>
+   <th style="text-align:center;"> Valor z </th>
+   <th style="text-align:center;"> P Valor </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> lambda </td>
+   <td style="text-align:center;"> 11.3185 </td>
+   <td style="text-align:center;"> 1.7476315 </td>
+   <td style="text-align:center;"> NA </td>
+   <td style="text-align:center;"> NA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:center;"> -1.7416 </td>
+   <td style="text-align:center;"> 0.1947813 </td>
+   <td style="text-align:center;"> 8.941252 </td>
+   <td style="text-align:center;"> &lt;0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> IDHe </td>
+   <td style="text-align:center;"> 2.4487 </td>
+   <td style="text-align:center;"> 0.2377530 </td>
+   <td style="text-align:center;"> 10.299173 </td>
+   <td style="text-align:center;"> &lt;0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Área </td>
+   <td style="text-align:center;"> 0.0771 </td>
+   <td style="text-align:center;"> 0.0170912 </td>
+   <td style="text-align:center;"> 4.513809 </td>
+   <td style="text-align:center;"> &lt;0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Densidade Demográfica </td>
+   <td style="text-align:center;"> 0.0506 </td>
+   <td style="text-align:center;"> 0.0097756 </td>
+   <td style="text-align:center;"> 5.180197 </td>
+   <td style="text-align:center;"> &lt;0.001 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pobreza </td>
+   <td style="text-align:center;"> -4.0161 </td>
+   <td style="text-align:center;"> 0.2305817 </td>
+   <td style="text-align:center;"> 17.417169 </td>
+   <td style="text-align:center;"> &lt;0.001 </td>
+  </tr>
+</tbody>
+</table>
 
 
 ## Gráficos
@@ -355,11 +448,19 @@ plot(model)
 ```
 
 
+![](imgs/envelope.png){.absolute top=45 right=50 width="200" height="350"}
+![](imgs/histograma.png){.absolute top=45 left=100 width="200" height="350"}
+![](imgs/resid_vs_fitted.png){.absolute top=150 right=170 width="200" height="350"}
+![](imgs/resid_vs_index.png){.absolute top=45 right=190 width="200" height="350"}
+
 
 # Considerações finais
 
 
+
 ##
+
+
 
 * Aperfeiçoamento da interface \textit{web}
 
